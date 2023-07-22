@@ -1,5 +1,7 @@
 # Madbuk-Library
--- THIS ARE EXAMPLE
+-- THESE ARE EXAMPLES --
+
+
 local main = Library:Init({
 	name = "Test",
 	intro = true
