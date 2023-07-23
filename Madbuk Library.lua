@@ -50,6 +50,7 @@ end
 
 
 
+
 function Library:tween(object,num,goal)
 	local tween = tweenService:Create(object,TweenInfo.new(num),goal)
 	tween:Play()
@@ -57,6 +58,9 @@ end
 
 function Library:Init(options) 
 
+	
+	
+	
 	local Window = {
 		CurrentTab = nil,
 		Hover = false
@@ -66,7 +70,24 @@ function Library:Init(options)
 
 	--Main
 
+	Window["11az"] = Instance.new("Folder", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui)
+	Window["11az"].Name = "Sounds"
 
+	Window["21az"] = Instance.new("Sound", Window["11az"])
+	Window["21az"].SoundId = options.sounds.hover
+	Window["21az"].Volume = 0.2
+	Window["21az"].Name = "Hover"
+
+	Window["31az"] = Instance.new("Sound", Window["11az"])
+	Window["31az"].SoundId = options.sounds.click
+	Window["31az"].Volume = 1
+	Window["31az"].Name = "Click"
+
+	Window["41az"] = Instance.new("Sound", Window["11az"])
+	Window["41az"].SoundId = options.sounds.start
+	Window["41az"].Volume = 1
+	Window["41az"].Name = "Start"
+	
 
 	do
 		-- StarterWindow.MadbukLibrary
@@ -74,7 +95,7 @@ function Library:Init(options)
 		Window["1"]["Name"] = [[MadbukLibrary]];
 		Window["1"]["IgnoreGuiInset"] = true;
 
-
+		
 		-- StarterWindow.MadbukLibrary.Main
 		Window["2"] = Instance.new("Frame", Window["1"]);
 		Window["2"]["BorderSizePixel"] = 0;
@@ -361,6 +382,7 @@ function Library:Init(options)
 
 		Window["d000"].MouseEnter:Connect(function()
 			Window.Hover = true
+			Window["21az"]:Play()
 			Library:tween(Window["d000"], 0.1, {
 				ImageColor3 = Color3.fromRGB(255,10,10),
 				Size = UDim2.new(0,20,0,20)})
@@ -379,15 +401,17 @@ function Library:Init(options)
 
 		Window["d000"].MouseButton1Click:Connect(function()
 			Window["2"].ClipsDescendants = true
+			Window["31az"]:Play()
 			game.TweenService:Create(Window["2"], TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 				Size = UDim2.new(0,0,0,0),
-				Position = UDim2.new(0, Window["2"].AbsolutePosition.X + (Window["2"].AbsoluteSize.X / 2), 0, Window["2"].AbsolutePosition.Y + (Window["2"].AbsoluteSize.Y / 2))
+				Position = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2))
 			}):Play()
 			wait(0.1)
 			Window["1"]:Destroy()
 		end)
 
 		Window["e000"].MouseEnter:Connect(function()
+			Window["21az"]:Play()
 			Window.Hover = true
 			Library:tween(Window["e000"], 0.1, {
 				ImageColor3 = Color3.fromRGB(200,200,200)})
@@ -400,6 +424,7 @@ function Library:Init(options)
 		end)
 
 		Window["e000"].MouseButton1Click:Connect(function()
+			Window["31az"]:Play()
 			Window["6000"]["Visible"] = true
 			Window["2000"]["Visible"] = true
 			Window["9"]["PaddingLeft"] = UDim.new(0,15)
@@ -416,6 +441,7 @@ function Library:Init(options)
 
 		Window["b"].MouseEnter:Connect(function()
 			Window.Hover = true
+			Window["21az"]:Play()
 			Library:tween(Window["b"], 0.1, {
 				ImageColor3 = Color3.fromRGB(200,200,200)})
 		end)
@@ -427,6 +453,7 @@ function Library:Init(options)
 		end)
 
 		Window["b"].MouseButton1Click:Connect(function()
+			Window["31az"]:Play()
 			Window["6000"]["Position"] = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2)) - UDim2.new(0,0,0,260)
 			Window["2000"]["Position"] = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2)) + UDim2.new(0,0,0,40)
 			Window["2000"]["Visible"] = true
@@ -455,6 +482,7 @@ function Library:Init(options)
 
 		Window["c"].MouseEnter:Connect(function()
 			Window.Hover = true
+			Window["21az"]:Play()
 			Library:tween(Window["c"], 0.1, {
 				ImageColor3 = Color3.fromRGB(255,10,10),
 				Size = UDim2.new(0,20,0,20)})
@@ -473,10 +501,11 @@ function Library:Init(options)
 		end)
 
 		Window["c"].MouseButton1Click:Connect(function()
+			Window["31az"]:Play()
 			Window["2"].ClipsDescendants = true
 			game.TweenService:Create(Window["2"], TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 				Size = UDim2.new(0,0,0,0),
-				Position = UDim2.new(0, Window["2"].AbsolutePosition.X + (Window["2"].AbsoluteSize.X / 2), 0, Window["2"].AbsolutePosition.Y + (Window["2"].AbsoluteSize.Y / 2))
+				Position = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2))
 			}):Play()
 			wait(0.1)
 			Window["1"]:Destroy()
@@ -504,6 +533,7 @@ function Library:Init(options)
 
 		Window["d"].MouseEnter:Connect(function()
 			Window.Hover = true
+			Window["21az"]:Play()
 			Library:tween(Window["d"], 0.1, {
 				ImageColor3 = Color3.fromRGB(200,200,200)})
 		end)
@@ -571,6 +601,7 @@ function Library:Init(options)
 		Window["1e"]["Name"] = [[Line]];
 
 		Window["d"].MouseButton1Click:Connect(function()
+			Window["31az"]:Play()
 			Window["e"].Active = not Window["e"].Active
 			if Window["e"].Active == true then
 				Library:tween(Window["1e"], 1.5, {Size = UDim2.new(0,1,0,460)})
@@ -757,12 +788,14 @@ function Library:Init(options)
 			tweenService:Create(Window["b00"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			tweenService:Create(Window["200"], TweenInfo.new(1.5, Enum.EasingStyle.Quint), {Size = Window["2"].Size}):Play()
 			wait(1.5)
-            Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
+			Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
 			Window["2"].Visible = true
+			Window["41az"]:Play()
 			Window["200"]:Destroy()
 		else
 			Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
 			Window["2"].Visible = true
+			Window["41az"]:Play()
 
 			Window["69"].Parent = Window["e"]
 			wait(0.1)
@@ -872,6 +905,7 @@ function Library:Init(options)
 
 		Tab["14"].MouseEnter:Connect(function()
 			Tab.Hover = true
+			Window["21az"]:Play()
 
 			if not Tab.Active then
 				Library:tween(Tab["16"], 0.2, {ImageColor3 = Color3.fromRGB(200,200,200)})
@@ -889,6 +923,7 @@ function Library:Init(options)
 
 		Tab["14"].MouseButton1Click:Connect(function()
 			Tab:Activate()
+			Window["31az"]:Play()
 		end)
 
 
@@ -945,6 +980,7 @@ function Library:Init(options)
 
 			Button["24"].MouseEnter:Connect(function()
 				Button.Hover = true
+				Window["21az"]:Play()
 
 				Library:tween(Button["24"], 0.2, {BackgroundColor3 = Color3.fromRGB(33,33,33)})
 				Library:tween(Button["24"], 0.2, {TextColor3 = Color3.fromRGB(222,222,222)})
@@ -960,6 +996,7 @@ function Library:Init(options)
 
 			Button["24"].MouseButton1Click:Connect(function()
 				options.callback()
+				Window["31az"]:Play()
 			end)
 
 			return Button
@@ -1010,6 +1047,7 @@ function Library:Init(options)
 			Label["2e"]["PaddingLeft"] = UDim.new(0, 10);
 
 			Label["2a"].MouseEnter:Connect(function()
+				Window["21az"]:Play()
 				Library:tween(Label["2a"], 0.2, {BackgroundColor3 = Color3.fromRGB(32,32,32)})
 				Library:tween(Label["2d"], 0.2, {TextColor3 = Color3.fromRGB(200,200,200)})
 			end)
@@ -1017,10 +1055,10 @@ function Library:Init(options)
 				Library:tween(Label["2a"], 0.3, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
 				Library:tween(Label["2d"], 0.2, {TextColor3 = Color3.fromRGB(155,155,155)})
 			end)
-            
-            function Label:Set(options)
-                Label["2d"]["Text"] = options.text
-            end
+
+			function Label:Set(options)
+				Label["2d"]["Text"] = options.text
+			end
 
 
 			return Label
@@ -1036,14 +1074,15 @@ function Library:Init(options)
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.ToggleOff
 			Toggle["59"] = Instance.new("ImageButton", Tab["22"]);
 			Toggle["59"]["BorderSizePixel"] = 0;
-            Toggle["59"]["AutoButtonColor"] = false;
-            Toggle["59"]["ImageTransparency"] = 1;
+			Toggle["59"]["AutoButtonColor"] = false;
+			Toggle["59"]["ImageTransparency"] = 1;
 			Toggle["59"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
 			Toggle["59"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Toggle["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Toggle["59"]["Name"] = [[ToggleOff]];
 
 			Toggle["59"].MouseEnter:Connect(function()
+				Window["21az"]:Play()
 				Library:tween(Toggle["59"], 0.2, {BackgroundColor3 = Color3.fromRGB(32,32,32)})
 			end)
 
@@ -1072,7 +1111,7 @@ function Library:Init(options)
 			Toggle["5c"]["AutoButtonColor"] = false
 			Toggle["5c"]["Text"] = ""
 
-            function Toggle:toggle()
+			function Toggle:toggle()
 				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
@@ -1080,10 +1119,11 @@ function Library:Init(options)
 				end
 
 				options.callback(Toggle.State)
-            end
+			end
 
 			Toggle["5c"].MouseEnter:Connect(function()
 				Toggle.Hover = true
+				Window["21az"]:Play()
 
 				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(0,255,170)})
@@ -1101,20 +1141,22 @@ function Library:Init(options)
 				end
 			end)
 
-            Toggle["5c"].MouseButton1Click:Connect(function()
-                Toggle.State = not Toggle.State
-                Toggle:toggle()
+			Toggle["5c"].MouseButton1Click:Connect(function()
+				Toggle.State = not Toggle.State
+				Toggle:toggle()
+				Window["31az"]:Play()
 			end)
 
 			Toggle["59"].MouseButton1Click:Connect(function()
-                Toggle.State = not Toggle.State
-                Toggle:toggle()
+				Toggle.State = not Toggle.State
+				Toggle:toggle()
+				Window["31az"]:Play()
 			end)
 
-            function Toggle:Set(options)
-                Toggle.State = options.state
-                Toggle:toggle()
-            end
+			function Toggle:Set(options)
+				Toggle.State = options.state
+				Toggle:toggle()
+			end
 
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Button.UICorner
 			Toggle["5d"] = Instance.new("UICorner", Toggle["5c"]);
@@ -1273,6 +1315,7 @@ function Library:Init(options)
 			do
 				Slider["2f"].MouseEnter:Connect(function()
 					Slider.Hover = true
+					Window["21az"]:Play()
 
 					Library:tween(Slider["36"], 0.2, {BackgroundColor3 = Color3.fromRGB(45,45,45)})
 					Library:tween(Slider["38"], 0.2, {BackgroundColor3 = Color3.fromRGB(180,180,180)})
@@ -1291,6 +1334,7 @@ function Library:Init(options)
 
 					if not Slider.Connection then
 						Slider.Connection = runService.RenderStepped:Connect(function()
+							Window["21az"]:Play()
 							Slider:SetValue()
 						end)
 					end
@@ -1310,6 +1354,7 @@ function Library:Init(options)
 
 					if not Slider.Connection then
 						Slider.Connection = runService.RenderStepped:Connect(function()
+							Window["21az"]:Play()
 							Slider:SetValue()
 						end)
 					end
@@ -1512,6 +1557,7 @@ function Library:Init(options)
 				Dropdown.Items[id].instance["51"]["PaddingLeft"] = UDim.new(0, 10);
 
 				Dropdown.Items[id].instance["4c"].MouseEnter:Connect(function()
+					Window["21az"]:Play()
 					Library:tween(Dropdown["52"],0.3,{BackgroundColor3 = Color3.fromRGB(32,32,32)})
 				end)
 
@@ -1523,6 +1569,7 @@ function Library:Init(options)
 				Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
 					options.callback(id)
 					Dropdown:Toggle()
+					Window["31az"]:Play()
 				end)
 
 			end
@@ -1562,9 +1609,9 @@ function Library:Init(options)
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
 					elseif count >= 6 then
-                       				Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
+						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
-                    			else
+					else
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
 					end
@@ -1572,6 +1619,7 @@ function Library:Init(options)
 			end
 
 			Dropdown["52"].MouseEnter:Connect(function()
+				Window["21az"]:Play()
 				Library:tween(Dropdown["52"],0.3,{BackgroundColor3 = Color3.fromRGB(32,32,32)})
 			end)
 
@@ -1582,6 +1630,7 @@ function Library:Init(options)
 
 			Dropdown["52"].MouseButton1Click:Connect(function()
 				Dropdown:Toggle()
+				Window["31az"]:Play()
 			end)
 
 
@@ -1673,8 +1722,8 @@ function Library:Init(options)
 				if letters >= 16 then
 					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.7,0,0) - UDim2.new(0,10,0,0) 
 				elseif letters >= 7 then
-                    			Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,10,0,0) 
-               			else
+					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,10,0,0) 
+				else
 					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.1,0,0) - UDim2.new(0,10,0,0)
 				end
 			end)
