@@ -61,13 +61,17 @@ function Library:Init(options)
 	
 	if options.multiple == false then
 	   for i,v in next, game:GetDescendants() do
-	       if v.Name == "MadukLibrary" then v:Destroy() end
+	       if v.Name == "MadukLibrary" and v:IsA("ScreenGui") then
+		  v:Destroy()
+	       end
 	   end
 	end
 
 	if options.multiple == false then
 	   for i,v in next, game:GetDescendants() do
-	       if v.Name == "Sounds" and v.Parent == coreGui then v:Destroy() end
+	       if v.Name == "Sounds" and v:IsA("Folder") then
+	          v:Destroy()
+	       end
 	   end
 	end
 	
