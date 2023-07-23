@@ -33,6 +33,13 @@ local label = tab:CreateLabel({
 })
 ```
 
+*SET A LABEL*
+```lua
+label:Set({
+            text = "beans"
+        })
+```
+
 *CREATE A TOGGLE*
 ```lua
 local toggle = tab:CreateToggle({
@@ -48,8 +55,14 @@ local toggle = tab:CreateToggle({
 })
 ```
 
-*CREATE A SLIDER*
+*SET A TOGGLE*
+```lua
+toggle:Set({
+            state = true
+        })
+```
 
+*CREATE A SLIDER*
 ```lua
 local slider = tab:CreateSlider({
 	name = "WalkSpeed",
@@ -60,6 +73,11 @@ local slider = tab:CreateSlider({
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 	end,
 })
+```
+
+*SET A SLIDER*
+```lua
+slider:SetValue(100)
 ```
 
 *ADD NEW DROPDOWN BUTTON*
@@ -73,20 +91,17 @@ local dropdown = tab1:CreateDropdown({
 ```
 *ADD NEW DROPDOWN BUTTON*
 ```lua
-dropdown:Add("1", 1)
-dropdown:Add("2", 2)
+dropdown:Add("1a")
+dropdown:Add("2a")
 ```
 
 *REMOVE DROPDOWN BUTTON*
 ```lua
-dropdown:Remove("1")
-dropdown:Remove("2")
+dropdown:Remove("1a")
+dropdown:Remove("2a")
 ```
 
-*CLEAR DROPDOWN*
-```lua
-dropdown:Clear()
-```
+
 
 *CREATE A TEXTBOX*
 ```lua
