@@ -1034,8 +1034,10 @@ function Library:Init(options)
 
 
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.ToggleOff
-			Toggle["59"] = Instance.new("Frame", Tab["22"]);
+			Toggle["59"] = Instance.new("ImageButton", Tab["22"]);
 			Toggle["59"]["BorderSizePixel"] = 0;
+            Toggle["59"]["AutoButtonColor"] = false;
+            Toggle["59"]["ImageTransparency"] = 1;
 			Toggle["59"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
 			Toggle["59"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Toggle["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1099,7 +1101,12 @@ function Library:Init(options)
 				end
 			end)
 
-			Toggle["5c"].MouseButton1Click:Connect(function()
+            Toggle["5c"].MouseButton1Click:Connect(function()
+                Toggle.State = not Toggle.State
+                Toggle:toggle()
+			end)
+
+			Toggle["59"].MouseButton1Click:Connect(function()
                 Toggle.State = not Toggle.State
                 Toggle:toggle()
 			end)
@@ -1673,3 +1680,4 @@ function Library:Init(options)
 	end
 	return Window
 end
+
