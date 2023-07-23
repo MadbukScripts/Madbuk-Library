@@ -2,6 +2,7 @@
 ```
 -- THESE ARE EXAMPLES --
 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/Madbuk%20Library.lua"))()
 
 local main = Library:Init({
 	name = "Test",
