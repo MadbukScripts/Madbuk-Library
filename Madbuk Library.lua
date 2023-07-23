@@ -1331,10 +1331,7 @@ function Library:Init(options)
 		function Tab:CreateDropdown(options)
 			local Dropdown = {
 				Items = {
-					["id"] = {
-
-						"value"
-					}
+					["id"] = {}
 				},
 				Active = false
 			}
@@ -1435,14 +1432,13 @@ function Library:Init(options)
 
 
 
-			function Dropdown:Add(id, value)
+			function Dropdown:Add(id)
 				if Dropdown.Items[id] ~= nil then
 					return
 				end
 
 				Dropdown.Items[id] ={
-					instance = {},
-					value = value
+					instance = {}
 				}
 				-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.OptionHolder.InactiveOption
 				Dropdown.Items[id].instance["4c"] = Instance.new("ImageButton", Dropdown["3e"]);
@@ -1505,7 +1501,7 @@ function Library:Init(options)
 
 
 				Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
-					options.callback(value)
+					options.callback(id)
 					Dropdown:Toggle()
 				end)
 
@@ -1519,12 +1515,6 @@ function Library:Init(options)
 						end
 					end
 					Dropdown.Items[id] = nil
-				end
-			end
-
-			function Dropdown:Clear()
-				for i,v in next, Dropdown.Items do
-					Dropdown:Remove(i)
 				end
 			end
 
