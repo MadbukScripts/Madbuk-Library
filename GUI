@@ -1734,4 +1734,4 @@ function Library:Init(options)
 	end
 	return Window
 end
-
+return Library
