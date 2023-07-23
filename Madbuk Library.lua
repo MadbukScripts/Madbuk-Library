@@ -10,6 +10,8 @@ local mouse = plr:GetMouse()
 
 local viewport = workspace.CurrentCamera.ViewportSize
 
+local Library = {}
+
 local UIS = game:GetService("UserInputService")
 function dragify(Frame)
 	dragToggle = nil
