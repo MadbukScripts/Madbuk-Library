@@ -11,6 +11,7 @@ local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com
 local main = MadbukLibrary:Init({
 	name = "Test",
 	intro = true,
+	multiple = false,
 	sounds = {
 		hover = "rbxassetid://10066936758",
 		click = "rbxassetid://10066936758",
