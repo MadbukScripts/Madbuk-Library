@@ -1561,7 +1561,10 @@ function Library:Init(options)
 					elseif count == 2 then
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-					else
+					elseif count >= 6 then
+                       				Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
+						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
+                    			else
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
 					end
