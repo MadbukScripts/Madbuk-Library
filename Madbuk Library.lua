@@ -56,25 +56,25 @@ function Library:tween(object,num,goal)
 end
 
 function Library:Init(options) 
-	
+
 	local Window = {
 		CurrentTab = nil,
 		Hover = false
 	}
-	
-	
+
+
 
 	--Main
-	
-	
-	
+
+
+
 	do
 		-- StarterWindow.MadbukLibrary
 		Window["1"] = Instance.new("ScreenGui", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui);
 		Window["1"]["Name"] = [[MadbukLibrary]];
 		Window["1"]["IgnoreGuiInset"] = true;
-		
-		
+
+
 		-- StarterWindow.MadbukLibrary.Main
 		Window["2"] = Instance.new("Frame", Window["1"]);
 		Window["2"]["BorderSizePixel"] = 0;
@@ -101,9 +101,9 @@ function Library:Init(options)
 		Window["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["4"]["Position"] = UDim2.new(1, 0, 1, 0);
 		Window["4"]["Name"] = [[Container]];
-		
+
 		dragify(Window["4"])
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.DropShadowHolder
 		Window["6b"] = Instance.new("Frame", Window["4"]);
 		Window["6b"]["ZIndex"] = 0;
@@ -134,9 +134,9 @@ function Library:Init(options)
 		Window["6d"]["CornerRadius"] = UDim.new(0, 10);
 
 	end
-	
+
 	--Top Bar
-	
+
 	do
 		-- StarterWindow.MadbukLibrary.Main.Container.TopBar
 		Window["5"] = Instance.new("Frame", Window["4"]);
@@ -147,8 +147,8 @@ function Library:Init(options)
 		Window["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["5"]["Position"] = UDim2.new(1.0049999952316284, -1, 0.07999999821186066, 0);
 		Window["5"]["Name"] = [[TopBar]];
-		
-		
+
+
 		-- StarterWindow.MadbukLibrary.Main.Container.TopBar.UICorner
 		Window["6"] = Instance.new("UICorner", Window["5"]);
 		Window["6"]["CornerRadius"] = UDim.new(0, 10);
@@ -190,8 +190,8 @@ function Library:Init(options)
 		Window["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["a"]["Position"] = UDim2.new(0, 0, 1, 0);
 		Window["a"]["Name"] = [[Line]];
-		
-		
+
+
 
 		-- StarterWindow.MadbukLibrary.Main.Container.TopBar.Minimize
 		Window["b"] = Instance.new("ImageButton", Window["5"]);
@@ -204,7 +204,7 @@ function Library:Init(options)
 		Window["b"]["Name"] = [[Minimize]];
 		Window["b"]["BackgroundTransparency"] = 1;
 		Window["b"]["Position"] = UDim2.new(0, 350, 0.699999988079071, 0);
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.TopBar.Menu
 		Window["d"] = Instance.new("ImageButton", Window["5"]);
 		Window["d"]["BorderSizePixel"] = 0;
@@ -220,58 +220,58 @@ function Library:Init(options)
 
 		--Minimize anim
 		do
-		-- StarterGui.Minimize.MinimizeFrame
-		Window["2000"] = Instance.new("Frame", Window["1"]);
-		Window["2000"]["BorderSizePixel"] = 0;
-		Window["2000"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50);
-		Window["2000"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-		Window["2000"]["Size"] = UDim2.new(0, 400, 0, 500);
-		Window["2000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["2000"]["Position"] = UDim2.new(0,Window["4"].AbsolutePosition.X,0,Window["4"].AbsolutePosition.Y);
-		Window["2000"]["Name"] = [[MinimizeFrame]];
-		Window["2000"]["Visible"] = false
+			-- StarterGui.Minimize.MinimizeFrame
+			Window["2000"] = Instance.new("Frame", Window["1"]);
+			Window["2000"]["BorderSizePixel"] = 0;
+			Window["2000"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50);
+			Window["2000"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+			Window["2000"]["Size"] = UDim2.new(0, 400, 0, 500);
+			Window["2000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["2000"]["Position"] = UDim2.new(0,Window["4"].AbsolutePosition.X,0,Window["4"].AbsolutePosition.Y);
+			Window["2000"]["Name"] = [[MinimizeFrame]];
+			Window["2000"]["Visible"] = false
 
-		-- Starte000rGui.Minimize.MinimizeFrame.UICorner
-		Window["3000"] = Instance.new("UICorner", Window["2000"]);
-		Window["3000"]["CornerRadius"] = UDim.new(0, 10);
+			-- Starte000rGui.Minimize.MinimizeFrame.UICorner
+			Window["3000"] = Instance.new("UICorner", Window["2000"]);
+			Window["3000"]["CornerRadius"] = UDim.new(0, 10);
 
-		-- Starte000rGui.Minimize.MinimizeFrame.DropShadowHolder
-		Window["4000"] = Instance.new("Frame", Window["2000"]);
-		Window["4000"]["ZIndex"] = 0;
-		Window["4000"]["BorderSizePixel"] = 0;
-		Window["4000"]["AnchorPoint"] = Vector2.new(1, 1);
-		Window["4000"]["BackgroundTransparency"] = 1;
-		Window["4000"]["Size"] = UDim2.new(1, 0, 1, 0);
-		Window["4000"]["Position"] = UDim2.new(1, 0, 1, 0);
-		Window["4000"]["Name"] = [[DropShadowHolder]];
+			-- Starte000rGui.Minimize.MinimizeFrame.DropShadowHolder
+			Window["4000"] = Instance.new("Frame", Window["2000"]);
+			Window["4000"]["ZIndex"] = 0;
+			Window["4000"]["BorderSizePixel"] = 0;
+			Window["4000"]["AnchorPoint"] = Vector2.new(1, 1);
+			Window["4000"]["BackgroundTransparency"] = 1;
+			Window["4000"]["Size"] = UDim2.new(1, 0, 1, 0);
+			Window["4000"]["Position"] = UDim2.new(1, 0, 1, 0);
+			Window["4000"]["Name"] = [[DropShadowHolder]];
 
-		-- Starte000rGui.Minimize.MinimizeFrame.DropShadowHolder.DropShadow
-		Window["5000"] = Instance.new("ImageLabel", Window["4000"]);
-		Window["5000"]["ZIndex"] = 0;
-		Window["5000"]["BorderSizePixel"] = 0;
-		Window["5000"]["SliceCenter"] = Rect.new(49, 49, 450, 450);
-		Window["5000"]["ScaleType"] = Enum.ScaleType.Slice;
-		Window["5000"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["5000"]["ImageTransparency"] = 0.5099999904632568;
-		Window["5000"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-		Window["5000"]["Image"] = [[rbxassetid://6014261993]];
-		Window["5000"]["Size"] = UDim2.new(1, 50, 1, 50);
-		Window["5000"]["Name"] = [[DropShadow]];
-		Window["5000"]["BackgroundTransparency"] = 1;
-		Window["5000"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+			-- Starte000rGui.Minimize.MinimizeFrame.DropShadowHolder.DropShadow
+			Window["5000"] = Instance.new("ImageLabel", Window["4000"]);
+			Window["5000"]["ZIndex"] = 0;
+			Window["5000"]["BorderSizePixel"] = 0;
+			Window["5000"]["SliceCenter"] = Rect.new(49, 49, 450, 450);
+			Window["5000"]["ScaleType"] = Enum.ScaleType.Slice;
+			Window["5000"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["5000"]["ImageTransparency"] = 0.5099999904632568;
+			Window["5000"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+			Window["5000"]["Image"] = [[rbxassetid://6014261993]];
+			Window["5000"]["Size"] = UDim2.new(1, 50, 1, 50);
+			Window["5000"]["Name"] = [[DropShadow]];
+			Window["5000"]["BackgroundTransparency"] = 1;
+			Window["5000"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
 
-		-- Starte000rGui.Minimize.TopBar
-		Window["6000"] = Instance.new("Frame", Window["1"]);
-		Window["6000"]["BorderSizePixel"] = 0;
-		Window["6000"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
-		Window["6000"]["AnchorPoint"] = Vector2.new(0.5, 0);
-		Window["6000"]["Size"] = UDim2.new(0, 402, 0, 40);
-		Window["6000"]["ClipsDescendants"] = true;
-		Window["6000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["6000"]["Position"] = Window["2000"].Position - UDim2.new(0,0,0,0);
-		Window["6000"]["Name"] = [[TopBar]];
+			-- Starte000rGui.Minimize.TopBar
+			Window["6000"] = Instance.new("Frame", Window["1"]);
+			Window["6000"]["BorderSizePixel"] = 0;
+			Window["6000"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
+			Window["6000"]["AnchorPoint"] = Vector2.new(0.5, 0);
+			Window["6000"]["Size"] = UDim2.new(0, 402, 0, 40);
+			Window["6000"]["ClipsDescendants"] = true;
+			Window["6000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["6000"]["Position"] = Window["2000"].Position - UDim2.new(0,0,0,0);
+			Window["6000"]["Name"] = [[TopBar]];
 			Window["6000"]["Visible"] = false;
-			
+
 			-- StarterWindow.MadbukLibrary.Main.Container.TopBar.Menu
 			Window["z"] = Instance.new("ImageButton", Window["6000"]);
 			Window["z"]["BorderSizePixel"] = 0;
@@ -286,79 +286,79 @@ function Library:Init(options)
 			Window["z"]["Position"] = UDim2.new(0.07999999821186066, 0, 0.7599999904632568, 0);
 			Window["z"]["ImageColor3"] = Color3.fromRGB(255,255,255);
 
-		-- Starte000rGui.Minimize.TopBar.UICorner
-		Window["7000"] = Instance.new("UICorner", Window["6000"]);
-		Window["7000"]["CornerRadius"] = UDim.new(0, 10);
+			-- Starte000rGui.Minimize.TopBar.UICorner
+			Window["7000"] = Instance.new("UICorner", Window["6000"]);
+			Window["7000"]["CornerRadius"] = UDim.new(0, 10);
 
-		-- Starte000rGui.Minimize.TopBar.Hide
-		Window["8000"] = Instance.new("Frame", Window["6000"]);
-		Window["8000"]["BorderSizePixel"] = 0;
-		Window["8000"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
-		Window["8000"]["AnchorPoint"] = Vector2.new(0, 1);
-		Window["8000"]["Size"] = UDim2.new(0, 402, 0, 10);
-		Window["8000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["8000"]["Position"] = UDim2.new(0, 0, 1, 0);
-		Window["8000"]["Name"] = [[Hide]];
+			-- Starte000rGui.Minimize.TopBar.Hide
+			Window["8000"] = Instance.new("Frame", Window["6000"]);
+			Window["8000"]["BorderSizePixel"] = 0;
+			Window["8000"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
+			Window["8000"]["AnchorPoint"] = Vector2.new(0, 1);
+			Window["8000"]["Size"] = UDim2.new(0, 402, 0, 10);
+			Window["8000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["8000"]["Position"] = UDim2.new(0, 0, 1, 0);
+			Window["8000"]["Name"] = [[Hide]];
 
-		-- Starte000rGui.Minimize.TopBar.Title
-		Window["9000"] = Instance.new("TextLabel", Window["6000"]);
-		Window["9000"]["BorderSizePixel"] = 0;
-		Window["9000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-		Window["9000"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-		Window["9000"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-		Window["9000"]["TextSize"] = 14;
-		Window["9000"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-		Window["9000"]["Size"] = UDim2.new(0, 400, 0, 40);
-		Window["9000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["9000"]["Text"] = options.name;
-		Window["9000"]["Name"] = [[Title]];
-		Window["9000"]["BackgroundTransparency"] = 1;
+			-- Starte000rGui.Minimize.TopBar.Title
+			Window["9000"] = Instance.new("TextLabel", Window["6000"]);
+			Window["9000"]["BorderSizePixel"] = 0;
+			Window["9000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Window["9000"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+			Window["9000"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			Window["9000"]["TextSize"] = 14;
+			Window["9000"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			Window["9000"]["Size"] = UDim2.new(0, 400, 0, 40);
+			Window["9000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["9000"]["Text"] = options.name;
+			Window["9000"]["Name"] = [[Title]];
+			Window["9000"]["BackgroundTransparency"] = 1;
 
-		-- Starte000rGui.Minimize.TopBar.Title.UIPadding
-		Window["a000"] = Instance.new("UIPadding", Window["9000"]);
-		Window["a000"]["PaddingLeft"] = UDim.new(0, 40);
+			-- Starte000rGui.Minimize.TopBar.Title.UIPadding
+			Window["a000"] = Instance.new("UIPadding", Window["9000"]);
+			Window["a000"]["PaddingLeft"] = UDim.new(0, 40);
 
-		-- Starte000rGui.Minimize.TopBar.Line
-		Window["b000"] = Instance.new("Frame", Window["6000"]);
-		Window["b000"]["BorderSizePixel"] = 0;
-		Window["b000"]["BackgroundColor3"] = Color3.fromRGB(86, 86, 86);
-		Window["b000"]["AnchorPoint"] = Vector2.new(0, 1);
-		Window["b000"]["Size"] = UDim2.new(0, 0, 0, 1);
-		Window["b000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["b000"]["Position"] = UDim2.new(0, 0, 1, 0);
-		Window["b000"]["Name"] = [[Line]];
-			
-			
+			-- Starte000rGui.Minimize.TopBar.Line
+			Window["b000"] = Instance.new("Frame", Window["6000"]);
+			Window["b000"]["BorderSizePixel"] = 0;
+			Window["b000"]["BackgroundColor3"] = Color3.fromRGB(86, 86, 86);
+			Window["b000"]["AnchorPoint"] = Vector2.new(0, 1);
+			Window["b000"]["Size"] = UDim2.new(0, 0, 0, 1);
+			Window["b000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["b000"]["Position"] = UDim2.new(0, 0, 1, 0);
+			Window["b000"]["Name"] = [[Line]];
 
-		-- Starte000rGui.Minimize.TopBar.Close
-		Window["d000"] = Instance.new("ImageButton", Window["6000"]);
-		Window["d000"]["Active"] = false;
-		Window["d000"]["BorderSizePixel"] = 0;
-		Window["d000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-		Window["d000"]["Selectable"] = false;
-		Window["d000"]["AnchorPoint"] = Vector2.new(0, 1);
-		Window["d000"]["Image"] = [[rbxassetid://13965481321]];
-		Window["d000"]["Size"] = UDim2.new(0, 15, 0, 15);
-		Window["d000"]["Name"] = [[Close]];
-		Window["d000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["d000"]["Position"] = UDim2.new(0, 375, 0.699999988079071, 0);
-		Window["d000"]["BackgroundTransparency"] = 1;
 
-		-- Starte000rGui.Minimize.TopBar.Minimize
-		Window["e000"] = Instance.new("ImageButton", Window["6000"]);
-		Window["e000"]["Active"] = false;
-		Window["e000"]["BorderSizePixel"] = 0;
-		Window["e000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-		Window["e000"]["Selectable"] = false;
-		Window["e000"]["AnchorPoint"] = Vector2.new(0, 1);
-		Window["e000"]["Image"] = [[rbxassetid://14153359185]];
-		Window["e000"]["Size"] = UDim2.new(0, 15, 0, 15);
-		Window["e000"]["Name"] = [[Minimize]];
-		Window["e000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["e000"]["Position"] = UDim2.new(0, 350, 0.699999988079071, 0);
-		Window["e000"]["BackgroundTransparency"] = 1;
+
+			-- Starte000rGui.Minimize.TopBar.Close
+			Window["d000"] = Instance.new("ImageButton", Window["6000"]);
+			Window["d000"]["Active"] = false;
+			Window["d000"]["BorderSizePixel"] = 0;
+			Window["d000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Window["d000"]["Selectable"] = false;
+			Window["d000"]["AnchorPoint"] = Vector2.new(0, 1);
+			Window["d000"]["Image"] = [[rbxassetid://13965481321]];
+			Window["d000"]["Size"] = UDim2.new(0, 15, 0, 15);
+			Window["d000"]["Name"] = [[Close]];
+			Window["d000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["d000"]["Position"] = UDim2.new(0, 375, 0.699999988079071, 0);
+			Window["d000"]["BackgroundTransparency"] = 1;
+
+			-- Starte000rGui.Minimize.TopBar.Minimize
+			Window["e000"] = Instance.new("ImageButton", Window["6000"]);
+			Window["e000"]["Active"] = false;
+			Window["e000"]["BorderSizePixel"] = 0;
+			Window["e000"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Window["e000"]["Selectable"] = false;
+			Window["e000"]["AnchorPoint"] = Vector2.new(0, 1);
+			Window["e000"]["Image"] = [[rbxassetid://14153359185]];
+			Window["e000"]["Size"] = UDim2.new(0, 15, 0, 15);
+			Window["e000"]["Name"] = [[Minimize]];
+			Window["e000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Window["e000"]["Position"] = UDim2.new(0, 350, 0.699999988079071, 0);
+			Window["e000"]["BackgroundTransparency"] = 1;
 		end
-		
+
 		Window["d000"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Library:tween(Window["d000"], 0.1, {
@@ -386,7 +386,7 @@ function Library:Init(options)
 			wait(0.1)
 			Window["1"]:Destroy()
 		end)
-		
+
 		Window["e000"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Library:tween(Window["e000"], 0.1, {
@@ -413,7 +413,7 @@ function Library:Init(options)
 			Window["2000"]["Visible"] = false
 			Window["2"]["Visible"] = true
 		end)
-		
+
 		Window["b"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Library:tween(Window["b"], 0.1, {
@@ -440,7 +440,7 @@ function Library:Init(options)
 			Library:tween(Window["2000"], .8, {Size = UDim2.new(0,402,0,40)})
 			Library:tween(Window["6000"], .8, {Position = Window["2000"].Position - UDim2.new(0,0,0,20)})
 		end)
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.TopBar.Close
 		Window["c"] = Instance.new("ImageButton", Window["5"]);
 		Window["c"]["BorderSizePixel"] = 0;
@@ -452,7 +452,7 @@ function Library:Init(options)
 		Window["c"]["Name"] = [[Close]];
 		Window["c"]["BackgroundTransparency"] = 1;
 		Window["c"]["Position"] = UDim2.new(0, 375, 0.699999988079071, 0);
-		
+
 		Window["c"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Library:tween(Window["c"], 0.1, {
@@ -460,7 +460,7 @@ function Library:Init(options)
 				Size = UDim2.new(0,20,0,20)})
 			Library:tween(Window["c"], 0.3, {Rotation = 90})
 			Window["c"].Position = UDim2.new(0, 373,0.7, 3)
-		Window["c"]["Size"] = UDim2.new(0, 15, 0, 15);
+			Window["c"]["Size"] = UDim2.new(0, 15, 0, 15);
 		end)
 
 		Window["c"].MouseLeave:Connect(function()
@@ -481,13 +481,13 @@ function Library:Init(options)
 			wait(0.1)
 			Window["1"]:Destroy()
 		end)
-		
-	
-		
+
+
+
 	end
-	
+
 	--Navigation
-	
+
 	do
 		-- StarterWindow.MadbukLibrary.Main.Container.Navigation
 		Window["e"] = Instance.new("Frame", Window["4"]);
@@ -501,20 +501,20 @@ function Library:Init(options)
 		Window["e"]["Visible"] = true;
 		Window["e"]["Name"] = [[Navigation]];
 		Window["e"]["ClipsDescendants"] = true
-		
+
 		Window["d"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Library:tween(Window["d"], 0.1, {
 				ImageColor3 = Color3.fromRGB(200,200,200)})
 		end)
-		
+
 		Window["d"].MouseLeave:Connect(function()
 			Window.Hover = false
 			Library:tween(Window["d"], 0.1, {
 				ImageColor3 = Color3.fromRGB(255,255,255)})
 		end)
 
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.Navigation.UICorner
 		Window["f"] = Instance.new("UICorner", Window["e"]);
 		Window["f"]["CornerRadius"] = UDim.new(0, 10);
@@ -569,7 +569,7 @@ function Library:Init(options)
 		Window["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["1e"]["Position"] = UDim2.new(1, 0, 0, 0);
 		Window["1e"]["Name"] = [[Line]];
-		
+
 		Window["d"].MouseButton1Click:Connect(function()
 			Window["e"].Active = not Window["e"].Active
 			if Window["e"].Active == true then
@@ -582,7 +582,7 @@ function Library:Init(options)
 				uiTween2:Play()
 			end
 		end)
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.TabHolder
 		Window["1f"] = Instance.new("Frame", Window["4"]);
 		Window["1f"]["BorderSizePixel"] = 0;
@@ -609,7 +609,7 @@ function Library:Init(options)
 		Window["6a"]["Rotation"] = 90;
 		Window["6a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(54,54,54)),ColorSequenceKeypoint.new(1, Color3.fromRGB(36,36,36))};
 
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.WindowHolder.UICorner
 		Window["20"] = Instance.new("UICorner", Window["1f"]);
 		Window["20"]["CornerRadius"] = UDim.new(0, 10);
@@ -623,10 +623,10 @@ function Library:Init(options)
 		Window["21"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["21"]["Name"] = [[Hide]];
 
-		
-		
+
+
 		if options.intro then
-			
+
 			-- StarterGui.Window.Main
 			Window["200"] = Instance.new("Frame", Window["1"]);
 			Window["200"]["BorderSizePixel"] = 0;
@@ -638,7 +638,7 @@ function Library:Init(options)
 			Window["200"]["Name"] = [[Intro]];
 			Window["200"]["BackgroundTransparency"] = 1
 
-			
+
 
 			-- StarterGui.Window.Main.UICorner
 			Window["300"] = Instance.new("UICorner", Window["200"]);
@@ -692,7 +692,7 @@ function Library:Init(options)
 			Window["700"]["BackgroundTransparency"] = 1;
 			Window["700"]["Position"] = UDim2.new(0, 0, 0.5, 0);
 
-			
+
 
 			-- Starte00rGui.Window.Main.Name.UIPadding
 			Window["800"] = Instance.new("UIPadding", Window["700"]);
@@ -716,7 +716,7 @@ function Library:Init(options)
 			Window["900"]["BackgroundTransparency"] = 1;
 			Window["900"]["Position"] = UDim2.new(0, 0, 0.5, -20);
 
-			
+
 
 			-- Starte00rGui.Window.Main.Game.UIPadding
 			Window["a00"] = Instance.new("UIPadding", Window["900"]);
@@ -739,32 +739,27 @@ function Library:Init(options)
 			Window["b00"]["Name"] = [[Watermark]];
 			Window["b00"]["BackgroundTransparency"] = 1;
 			Window["b00"]["Position"] = UDim2.new(1, 0, 1, 10);
-			
+
 			Window["c00"] = Instance.new("UIPadding", Window["b00"]);
 			Window["c00"]["PaddingRight"] = UDim.new(0, 10);
-			
+
 			wait(1)
-			
+
 			tweenService:Create(Window["200"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
 			tweenService:Create(Window["700"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 			tweenService:Create(Window["900"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 			tweenService:Create(Window["b00"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.2000000298023224}):Play()
-			
+
 			wait(2.2)
-			
+
 			tweenService:Create(Window["700"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			tweenService:Create(Window["900"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			tweenService:Create(Window["b00"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			tweenService:Create(Window["200"], TweenInfo.new(1.5, Enum.EasingStyle.Quint), {Size = Window["2"].Size}):Play()
-			wait(1.55)
-			Window["200"]:Destroy()
-
-			Window["69"].Parent = Window["e"]
-			wait(0.1)
-			Window["69"].Parent = Window["1f"]
-			
-			Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
+			wait(1.5)
+            Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
 			Window["2"].Visible = true
+			Window["200"]:Destroy()
 		else
 			Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
 			Window["2"].Visible = true
@@ -773,19 +768,19 @@ function Library:Init(options)
 			wait(0.1)
 			Window["69"].Parent = Window["1f"]
 		end
-		
+
 
 	end
-	
 
-	
+
+
 	function Window:CreateTab(options)
 		local Tab = {
 			Hover = false,
 			Active = false
 		}
-		
-		
+
+
 		-- StarterGUI.Window.MadbukLibrary.Main.Container.Navigation.ButtonHolder.Window1
 		Tab["14"] = Instance.new("TextButton", Window["12"]);
 		Tab["14"]["ZIndex"] = 3;
@@ -813,7 +808,7 @@ function Library:Init(options)
 		Tab["16"]["Name"] = [[Logo]];
 		Tab["16"]["BackgroundTransparency"] = 1;
 		Tab["16"]["Position"] = UDim2.new(0, 6, 0, 3);
-		
+
 		-- StarterWindow.MadbukLibrary.Main.Container.WindowHolder.ContentContainer
 		Tab["22"] = Instance.new("ScrollingFrame", Window["1f"]);
 		Tab["22"]["Active"] = true;
@@ -839,13 +834,13 @@ function Library:Init(options)
 		Tab["23"] = Instance.new("UIListLayout", Tab["22"]);
 		Tab["23"]["Padding"] = UDim.new(0, 6);
 		Tab["23"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
-		
+
 		-- StarterTab.MadbukLibrary.Main.Container.Navigation.ButtonHolder.Tab1.UICorner
 		Tab["18"] = Instance.new("UICorner", Tab["14"]);
-		
-		
 
-		
+
+
+
 		function Tab:Deactivate()
 			if Tab.Active then
 				Tab.Active = false
@@ -853,28 +848,28 @@ function Library:Init(options)
 				Library:tween(Tab["14"], 0.2, {BackgroundColor3 = Color3.fromRGB(61,61,61)})
 				Library:tween(Tab["14"], 0.2, {BackgroundTransparency = 0.4})
 				Library:tween(Tab["14"], 0.2, {TextColor3 = Color3.fromRGB(255,255,255)})
-				
+
 				Library:tween(Tab["22"], 0.8, {Size = UDim2.new(0,0,0,0)})
 				Tab["22"].Visible = false
 			end
 		end
-		
+
 		function Tab:Activate()
 			if not Tab.Active then
 				if Window.CurrentTab ~= nil then  
 					Window.CurrentTab:Deactivate()
 				end
 				Tab.Active = true
-				
+
 				Library:tween(Tab["14"], 0.2, {BackgroundColor3 = Color3.fromRGB(100,100,100)})
 				Library:tween(Tab["14"], 0.2, {BackgroundTransparency = 0})
-				
+
 				Tab["22"].Visible = true
 				Library:tween(Tab["22"], 0.8, {Size = UDim2.new(0, 374, 0, 440)})
 				Window.CurrentTab = Tab
 			end
 		end
-		
+
 		Tab["14"].MouseEnter:Connect(function()
 			Tab.Hover = true
 
@@ -885,7 +880,7 @@ function Library:Init(options)
 		end)
 		Tab["14"].MouseLeave:Connect(function()
 			Tab.Hover = false
-			
+
 			if not Tab.Active then
 				Library:tween(Tab["16"], 0.2, {ImageColor3 = Color3.fromRGB(255,255,255)})
 				Library:tween(Tab["14"], 0.2, {TextColor3 = Color3.fromRGB(255,255,255)})
@@ -895,18 +890,18 @@ function Library:Init(options)
 		Tab["14"].MouseButton1Click:Connect(function()
 			Tab:Activate()
 		end)
-		
-		
+
+
 		if Window.CurrentTab == nil then
 			Tab:Activate()
 		end
-		
+
 		function Tab:CreateButton(options)
 			local Button = {
 				Hover = false,
 				MouseDown = false
 			}
-			
+
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.Button
 			Button["24"] = Instance.new("TextButton", Tab["22"]);
 			Button["24"]["BorderSizePixel"] = 0;
@@ -929,7 +924,7 @@ function Library:Init(options)
 			-- StarterButton.MadbukLibrary.Main.Container.ButtonHolder.ContentContainer.Button.UICorner
 			Button["26"] = Instance.new("UICorner", Button["24"]);
 
-			
+
 
 			-- StarterButton.MadbukLibrary.Main.Container.ButtonHolder.ContentContainer.Button.UIPadding
 			Button["28"] = Instance.new("UIPadding", Button["24"]);
@@ -947,35 +942,35 @@ function Library:Init(options)
 			Button["29"]["Name"] = [[Indicator]];
 			Button["29"]["BackgroundTransparency"] = 1;
 			Button["29"]["Position"] = UDim2.new(1, -15, 0.5, 0);
-			
+
 			Button["24"].MouseEnter:Connect(function()
 				Button.Hover = true
 
 				Library:tween(Button["24"], 0.2, {BackgroundColor3 = Color3.fromRGB(33,33,33)})
 				Library:tween(Button["24"], 0.2, {TextColor3 = Color3.fromRGB(222,222,222)})
-				
+
 			end)
 			Button["24"].MouseLeave:Connect(function()
 				Button.Hover = false
 
 				Library:tween(Button["24"], 0.2, {BackgroundColor3 = Color3.fromRGB(27,27,27)})
 				Library:tween(Button["24"], 0.2, {TextColor3 = Color3.fromRGB(255,255,255)})
-				
+
 			end)
-			
+
 			Button["24"].MouseButton1Click:Connect(function()
 				options.callback()
 			end)
-			
+
 			return Button
 		end
-		
+
 		function Tab:CreateLabel(options)
 			local Label = {
 				Hover = false
 			}
-			
-			
+
+
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.TextLabel
 			Label["2a"] = Instance.new("Frame", Tab["22"]);
 			Label["2a"]["BorderSizePixel"] = 0;
@@ -983,8 +978,8 @@ function Library:Init(options)
 			Label["2a"]["Size"] = UDim2.new(0, 370, 0, 50);
 			Label["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Label["2a"]["Name"] = [[TextLabel]];
-			
-			
+
+
 
 			-- StarterLabel.MadbukLibrary.Main.Container.LabelHolder.ContentContainer.TextLabel.UIStroke
 			Label["2b"] = Instance.new("UIStroke", Label["2a"]);
@@ -1013,7 +1008,7 @@ function Library:Init(options)
 			-- StarterLabel.MadbukLibrary.Main.Container.LabelHolder.ContentContainer.TextLabel.Text.UIPadding
 			Label["2e"] = Instance.new("UIPadding", Label["2d"]);
 			Label["2e"]["PaddingLeft"] = UDim.new(0, 10);
-			
+
 			Label["2a"].MouseEnter:Connect(function()
 				Library:tween(Label["2a"], 0.2, {BackgroundColor3 = Color3.fromRGB(32,32,32)})
 				Library:tween(Label["2d"], 0.2, {TextColor3 = Color3.fromRGB(200,200,200)})
@@ -1022,16 +1017,16 @@ function Library:Init(options)
 				Library:tween(Label["2a"], 0.3, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
 				Library:tween(Label["2d"], 0.2, {TextColor3 = Color3.fromRGB(155,155,155)})
 			end)
-			
+
 			return Label
 		end
-		
+
 		function Tab:CreateToggle(options)
 			local Toggle = {
 				Hover = false,
 				State = false
 			}
-			
+
 
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.ToggleOff
 			Toggle["59"] = Instance.new("Frame", Tab["22"]);
@@ -1040,11 +1035,11 @@ function Library:Init(options)
 			Toggle["59"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Toggle["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Toggle["59"]["Name"] = [[ToggleOff]];
-			
+
 			Toggle["59"].MouseEnter:Connect(function()
 				Library:tween(Toggle["59"], 0.2, {BackgroundColor3 = Color3.fromRGB(32,32,32)})
 			end)
-			
+
 			Toggle["59"].MouseLeave:Connect(function()
 				Library:tween(Toggle["59"], 0.3, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
 			end)
@@ -1069,10 +1064,10 @@ function Library:Init(options)
 			Toggle["5c"]["Name"] = [[Button]];
 			Toggle["5c"]["AutoButtonColor"] = false
 			Toggle["5c"]["Text"] = ""
-			
+
 			Toggle["5c"].MouseEnter:Connect(function()
 				Toggle.Hover = true
-				
+
 				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(0,255,170)})
 				else
@@ -1081,14 +1076,14 @@ function Library:Init(options)
 			end)
 			Toggle["5c"].MouseLeave:Connect(function()
 				Toggle.Hover = false
-				
+
 				if Toggle.State  then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
 			end)
-			
+
 			Toggle["5c"].MouseButton1Click:Connect(function()
 				Toggle.State = not Toggle.State
 
@@ -1097,10 +1092,10 @@ function Library:Init(options)
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
-				
+
 				options.callback(Toggle.State)
 			end)
-			
+
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Button.UICorner
 			Toggle["5d"] = Instance.new("UICorner", Toggle["5c"]);
 			Toggle["5d"]["CornerRadius"] = UDim.new(0, 4);
@@ -1126,11 +1121,11 @@ function Library:Init(options)
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Text.UIPadding
 			Toggle["60"] = Instance.new("UIPadding", Toggle["5f"]);
 			Toggle["60"]["PaddingLeft"] = UDim.new(0, 10);
-			
-			
+
+
 			return Toggle
 		end
-		
+
 		function Tab:CreateSlider(options)
 			local Slider = {
 				Hover = false,
@@ -1138,8 +1133,8 @@ function Library:Init(options)
 				Connection = nil,
 				MouseDown = false,
 			}
-			
-			
+
+
 
 
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.Slider
@@ -1239,7 +1234,7 @@ function Library:Init(options)
 				if v == nil then
 					local percentage = math.clamp((mouse.X - Slider["36"].AbsolutePosition.X) / (Slider["36"].AbsoluteSize.X), 0, 1)
 					local value = ((options.max - options.min) * percentage) + options.min
-					
+
 					Slider["34"].Text = tostring(math.ceil(value))
 					Library:tween(Slider["38"], 0.2, {Size = UDim2.fromScale(percentage, 1)})
 				else
@@ -1248,13 +1243,13 @@ function Library:Init(options)
 				end
 				options.callback(Slider:GetValue())
 			end
-			
+
 			function Slider:GetValue()
 				return math.ceil(tonumber(Slider["34"].Text))
 			end
-			
+
 			--Logic
-			
+
 			do
 				Slider["2f"].MouseEnter:Connect(function()
 					Slider.Hover = true
@@ -1270,26 +1265,26 @@ function Library:Init(options)
 					Library:tween(Slider["38"], 0.2, {BackgroundColor3 = Color3.fromRGB(255,255,255)})
 					Library:tween(Slider["2f"], 0.2, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
 				end)
-				
+
 				Slider["2f"].MouseButton1Down:Connect(function()
 					Slider.MouseDown = true
-					
+
 					if not Slider.Connection then
 						Slider.Connection = runService.RenderStepped:Connect(function()
 							Slider:SetValue()
 						end)
 					end
 				end)
-				
+
 
 
 				Slider["2f"].MouseButton1Up:Connect(function()
 					Slider.MouseDown = false
-					
+
 					if Slider.Connection then Slider.Connection:Disconnect() end
 					Slider.Connection = nil
 				end)
-				
+
 				Slider["36"].MouseButton1Down:Connect(function()
 					Slider.MouseDown = true
 
@@ -1326,13 +1321,13 @@ function Library:Init(options)
 					if Slider.Connection then Slider.Connection:Disconnect() end
 					Slider.Connection = nil
 				end)
-				
-				
+
+
 			end
-			
+
 			return Slider
 		end
-		
+
 		function Tab:CreateDropdown(options)
 			local Dropdown = {
 				Items = {
@@ -1343,7 +1338,7 @@ function Library:Init(options)
 				},
 				Active = false
 			}
-			
+
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.Dropdown
 			Dropdown["3b"] = Instance.new("Frame", Tab["22"]);
 			Dropdown["3b"]["BorderSizePixel"] = 0;
@@ -1375,7 +1370,7 @@ function Library:Init(options)
 			Dropdown["3e"]["Position"] = UDim2.new(0, 5, 0.92, 0);
 			Dropdown["3e"]["Name"] = [[OptionHolder]];
 
-			
+
 			-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.TextHolder
 			Dropdown["52"] = Instance.new("ImageButton", Dropdown["3b"]);
 			Dropdown["52"]["ZIndex"] = 2;
@@ -1429,22 +1424,22 @@ function Library:Init(options)
 			Dropdown["57"] = Instance.new("UIStroke", Dropdown["52"]);
 			Dropdown["57"]["Color"] = Color3.fromRGB(255, 255, 255);
 			Dropdown["57"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-			
+
 
 			-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.OptionHolder.UIListLayout
 			Dropdown["45"] = Instance.new("UIListLayout", Dropdown["3e"]);
 			Dropdown["45"]["Padding"] = UDim.new(0, 6);
 			Dropdown["45"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
-		
-			
-			
-			
+
+
+
+
 			function Dropdown:Add(id, value)
 				if Dropdown.Items[id] ~= nil then
 					return
 				end
-				
+
 				Dropdown.Items[id] ={
 					instance = {},
 					value = value
@@ -1513,26 +1508,26 @@ function Library:Init(options)
 					options.callback(value)
 					Dropdown:Toggle()
 				end)
-				
+
 			end
-			
+
 			function Dropdown:Remove(id)
 				if Dropdown.Items[id] ~= nil then
 					if #Dropdown.Items[id].instance ~= nil then
 						for i,v in next, Dropdown.Items[id].instance do
-						v:Destroy()
+							v:Destroy()
 						end
 					end
 					Dropdown.Items[id] = nil
 				end
 			end
-			
+
 			function Dropdown:Clear()
 				for i,v in next, Dropdown.Items do
 					Dropdown:Remove(i)
 				end
 			end
-			
+
 			function Dropdown:Toggle()
 				Dropdown.Active = not Dropdown.Active
 				if Dropdown.Active == false then
@@ -1546,7 +1541,7 @@ function Library:Init(options)
 						end
 					end
 					print(count)
-					
+
 					Dropdown["3e"]["Size"] = UDim2.new(0,360,0,0)
 					Dropdown["3b"]["Size"] = UDim2.new(0,370,0,0)
 					Dropdown["3e"]["Visible"] = true
@@ -1562,7 +1557,7 @@ function Library:Init(options)
 					end
 				end
 			end
-			
+
 			Dropdown["52"].MouseEnter:Connect(function()
 				Library:tween(Dropdown["52"],0.3,{BackgroundColor3 = Color3.fromRGB(32,32,32)})
 			end)
@@ -1571,20 +1566,20 @@ function Library:Init(options)
 				Library:tween(Dropdown["52"],0.3,{BackgroundColor3 = Color3.fromRGB(28,28,28)})
 			end)
 
-			
+
 			Dropdown["52"].MouseButton1Click:Connect(function()
 				Dropdown:Toggle()
 			end)
-			
-			
+
+
 			return Dropdown
 		end
-		
+
 		function Tab:CreateTextbox(options)
 			local Textbox = {
-				
+
 			}
-			
+
 			-- StarterGui.MadbukLibraryT.Main.Container.TabHolder.ContentContainer.Textbox
 			Textbox["52"] = Instance.new("Frame", Tab["22"]);
 			Textbox["52"]["BorderSizePixel"] = 0;
@@ -1651,17 +1646,17 @@ function Library:Init(options)
 			-- StarterGui.MadbukLibraryT.Main.Container.TabHolder.ContentContainer.Textbox.Input.UIPadding
 			Textbox["5a"] = Instance.new("UIPadding", Textbox["57"]);
 			Textbox["5a"]["PaddingLeft"] = UDim.new(0, 6);
-			
+
 			Textbox["57"].FocusLost:Connect(function()
 				local txt = Textbox["57"].text
 				options.callback(txt)
 			end)
-			
+
 			Textbox["57"]:GetPropertyChangedSignal("Text"):Connect(function()
 				if Textbox["57"].CursorPosition == -1 then return end
 				local letters = tonumber(Textbox["57"].CursorPosition)
-				 
-				
+
+
 				if letters >= 10 then
 					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,5,0,0) 
 				else
@@ -1673,7 +1668,8 @@ function Library:Init(options)
 		end
 		return Tab
 	end
-
 	return Window
 end
+
+
 
