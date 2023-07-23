@@ -1667,10 +1667,12 @@ function Library:Init(options)
 				local letters = tonumber(Textbox["57"].CursorPosition)
 
 
-				if letters >= 10 then
-					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,5,0,0) 
-				else
-					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.1,0,0) - UDim2.new(0,5,0,0)
+				if letters >= 16 then
+					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.7,0,0) - UDim2.new(0,10,0,0) 
+				elseif letters >= 7 then
+                    			Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,10,0,0) 
+               			else
+					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.1,0,0) - UDim2.new(0,10,0,0)
 				end
 			end)
 
