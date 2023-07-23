@@ -20,7 +20,7 @@ local main = Library:Init({
 ```
 ## CREATE A TAB
 ```lua
-local tab1 = main:CreateTab({
+local tab = main:CreateTab({
 	name = "Test1",
 	icon = "rbxassetid://13965544901"
 })
