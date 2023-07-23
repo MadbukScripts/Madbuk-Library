@@ -56,7 +56,7 @@ function Library:tween(object,num,goal)
 	tween:Play()
 end
 
-function Library:Init(options) 
+function Library.Init(options) 
 
 	
 	
