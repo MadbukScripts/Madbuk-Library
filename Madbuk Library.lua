@@ -686,7 +686,7 @@ function Library:Init(options)
 			Window["700"]["AnchorPoint"] = Vector2.new(0, 0.5);
 			Window["700"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["700"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Window["700"]["Text"] = [[Madbuk Scripts]];
+			Window["700"]["Text"] = options.name;
 			Window["700"]["Name"] = [[Name]];
 			Window["700"]["TextTransparency"] = 1;
 			Window["700"]["BackgroundTransparency"] = 1;
@@ -711,7 +711,7 @@ function Library:Init(options)
 			Window["900"]["TextTransparency"] = 1;
 			Window["900"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["900"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Window["900"]["Text"] = [[Button Simulator ]];
+			Window["900"]["Text"] = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
 			Window["900"]["Name"] = [[Game]];
 			Window["900"]["BackgroundTransparency"] = 1;
 			Window["900"]["Position"] = UDim2.new(0, 0, 0.5, -20);
