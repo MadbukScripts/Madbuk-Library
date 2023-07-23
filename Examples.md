@@ -1,12 +1,12 @@
 # Madbuk-Library
 -- THESE ARE EXAMPLES --
 
-**STARTING THE LIBRARY*
+**STARTING THE LIBRARY**
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/Madbuk%20Library.lua"))()
 ```
 
-*INTRO TAB*
+**INTRO TAB**
 ```lua
 local main = Library:Init({
 	name = "Test",
@@ -18,7 +18,7 @@ local main = Library:Init({
 	}
 })
 ```
-*CREATE A TAB*
+**CREATE A TAB**
 ```lua
 local tab1 = main:CreateTab({
 	name = "Test1",
@@ -26,7 +26,7 @@ local tab1 = main:CreateTab({
 })
 ```
 
-*CREATE A BUTTON*
+**CREATE A BUTTON**
 ```lua
 local button = tab:CreateButton({
 	name = "test1",
@@ -36,21 +36,21 @@ local button = tab:CreateButton({
 })
 ```
 
-*CREATE A LABEL*
+**CREATE A LABEL**
 ```lua
 local label = tab:CreateLabel({
 	text = "test"
 })
 ```
 
-*SET A LABEL*
+**SET A LABEL**
 ```lua
 label:Set({
             text = "beans"
         })
 ```
 
-*CREATE A TOGGLE*
+**CREATE A TOGGLE**
 ```lua
 local toggle = tab:CreateToggle({
 	name = "test",
@@ -65,14 +65,14 @@ local toggle = tab:CreateToggle({
 })
 ```
 
-*SET A TOGGLE*
+**SET A TOGGLE**
 ```lua
 toggle:Set({
             state = true
         })
 ```
 
-*CREATE A SLIDER*
+**CREATE A SLIDER**
 ```lua
 local slider = tab:CreateSlider({
 	name = "WalkSpeed",
@@ -85,12 +85,12 @@ local slider = tab:CreateSlider({
 })
 ```
 
-*SET A SLIDER*
+**SET A SLIDER**
 ```lua
 slider:SetValue(100)
 ```
 
-*ADD NEW DROPDOWN BUTTON*
+**ADD NEW DROPDOWN BUTTON**
  ```lua
 local dropdown = tab1:CreateDropdown({
 	name = "Dropdown",
@@ -99,13 +99,13 @@ local dropdown = tab1:CreateDropdown({
 	end,	
 })
 ```
-*ADD NEW DROPDOWN BUTTON*
+**ADD NEW DROPDOWN BUTTON**
 ```lua
 dropdown:Add("1a")
 dropdown:Add("2a")
 ```
 
-*REMOVE DROPDOWN BUTTON*
+**REMOVE DROPDOWN BUTTON**
 ```lua
 dropdown:Remove("1a")
 dropdown:Remove("2a")
@@ -113,7 +113,7 @@ dropdown:Remove("2a")
 
 
 
-*CREATE A TEXTBOX*
+**CREATE A TEXTBOX**
 ```lua
 local textbox = tab1:CreateTextbox({
 	name = "Textbox",
