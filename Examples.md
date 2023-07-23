@@ -3,7 +3,7 @@
 
 ## STARTING THE LIBRARY
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/Madbuk%20Library.lua"))()
+loadstring(game:HttpGet(https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI))()
 ```
 
 ## INTRO TAB
