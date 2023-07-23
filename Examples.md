@@ -3,12 +3,12 @@
 
 ## STARTING THE LIBRARY
 ```lua
-loadstring(game:HttpGet(https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI"))()
 ```
 
 ## INTRO TAB
 ```lua
-local main = Library:Init({
+local main = Library.Init({
 	name = "Test",
 	intro = true,
 	sounds = {
