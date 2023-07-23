@@ -1017,6 +1017,11 @@ function Library:Init(options)
 				Library:tween(Label["2a"], 0.3, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
 				Library:tween(Label["2d"], 0.2, {TextColor3 = Color3.fromRGB(155,155,155)})
 			end)
+            
+            function Label:Set(options)
+                Label["2d"]["Text"] = options.text
+            end
+
 
 			return Label
 		end
@@ -1065,6 +1070,16 @@ function Library:Init(options)
 			Toggle["5c"]["AutoButtonColor"] = false
 			Toggle["5c"]["Text"] = ""
 
+            function Toggle:toggle()
+				if Toggle.State then
+					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
+				else
+					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
+				end
+
+				options.callback(Toggle.State)
+            end
+
 			Toggle["5c"].MouseEnter:Connect(function()
 				Toggle.Hover = true
 
@@ -1085,16 +1100,14 @@ function Library:Init(options)
 			end)
 
 			Toggle["5c"].MouseButton1Click:Connect(function()
-				Toggle.State = not Toggle.State
-
-				if Toggle.State then
-					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
-				else
-					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
-				end
-
-				options.callback(Toggle.State)
+                Toggle.State = not Toggle.State
+                Toggle:toggle()
 			end)
+
+            function Toggle:Set(options)
+                Toggle.State = options.state
+                Toggle:toggle()
+            end
 
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Button.UICorner
 			Toggle["5d"] = Instance.new("UICorner", Toggle["5c"]);
@@ -1660,6 +1673,3 @@ function Library:Init(options)
 	end
 	return Window
 end
-
-
-
