@@ -8,7 +8,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-
 
 ## INTRO TAB
 ```lua
-local main = Library.Init({
+local main = Library:Init({
 	name = "Test",
 	intro = true,
 	sounds = {
