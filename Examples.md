@@ -1,22 +1,22 @@
 # Madbuk-Library
 -- THESE ARE EXAMPLES --
 
+*INTRO TAB*
 ```lua
 local main = Library:Init({
 	name = "Test",
 	intro = true
 })
 ```
-*INTRO TAB*
-
+*CREATE A TAB*
 ```lua
 local tab1 = main:CreateTab({
 	name = "Test1",
 	icon = "rbxassetid://13965544901"
 })
 ```
-*CREATE A TAB*
 
+*CREATE A BUTTON*
 ```lua
 local button = tab:CreateButton({
 	name = "test1",
@@ -26,15 +26,14 @@ local button = tab:CreateButton({
 })
 ```
 
-*CREATE A BUTTON*
-
+*CREATE A LABEL*
 ```lua
 local label = tab:CreateLabel({
 	text = "test"
 })
 ```
-*CREATE A LABEL*
 
+*CREATE A TOGGLE*
 ```lua
 local toggle = tab:CreateToggle({
 	name = "test",
@@ -49,7 +48,7 @@ local toggle = tab:CreateToggle({
 })
 ```
 
-*CREATE A TOGGLE*
+*CREATE A SLIDER*
 
 ```lua
 local slider = tab:CreateSlider({
@@ -63,8 +62,7 @@ local slider = tab:CreateSlider({
 })
 ```
 
-*CREATE A SLIDER*
-
+*ADD NEW DROPDOWN BUTTON*
  ```lua
 local dropdown = tab1:CreateDropdown({
 	name = "Dropdown",
@@ -73,26 +71,24 @@ local dropdown = tab1:CreateDropdown({
 	end,	
 })
 ```
-
+*ADD NEW DROPDOWN BUTTON*
 ```lua
 dropdown:Add("1", 1)
 dropdown:Add("2", 2)
 ```
 
-*ADD NEW DROPDOWN BUTTON*
-
+*REMOVE DROPDOWN BUTTON*
 ```lua
 dropdown:Remove("1")
 dropdown:Remove("2")
 ```
 
-*REMOVE DROPDOWN BUTTON*
-
+*CLEAR DROPDOWN*
 ```lua
 dropdown:Clear()
 ```
-*CLEAN DROPDOWN*
 
+*CREATE A TEXTBOX*
 ```lua
 local textbox = tab1:CreateTextbox({
 	name = "Textbox",
@@ -101,5 +97,3 @@ local textbox = tab1:CreateTextbox({
 	end,
 })
 ```
-
-*CREATE A TEXTBOX*
