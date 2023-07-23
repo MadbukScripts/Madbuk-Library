@@ -1,6 +1,11 @@
 # Madbuk-Library
 -- THESE ARE EXAMPLES --
 
+**STARTING THE LIBRARY*
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/Madbuk%20Library.lua"))()
+```
+
 *INTRO TAB*
 ```lua
 local main = Library:Init({
