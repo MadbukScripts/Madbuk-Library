@@ -26,7 +26,7 @@ local tab1 = main:CreateTab({
 })
 ```
 
-**CREATE A BUTTON**
+## CREATE A BUTTON
 ```lua
 local button = tab:CreateButton({
 	name = "test1",
