@@ -61,7 +61,7 @@ function Library:Init(options)
 	
 	if options.multiple == false then
 	   for i,v in next, game:GetDescendants() do
-	       if v.Name == "MadukLibrary" and v:IsA("ScreenGui") then
+	       if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
 		  v:Destroy()
 	       end
 	   end
@@ -69,7 +69,7 @@ function Library:Init(options)
 
 	if options.multiple == false then
 	   for i,v in next, game:GetDescendants() do
-	       if v.Name == "Sounds" and v:IsA("Folder") then
+	       if v:IsA("Folder") and v.Name == "Sounds" then
 	          v:Destroy()
 	       end
 	   end
