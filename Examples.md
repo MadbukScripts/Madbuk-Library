@@ -10,7 +10,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-
 ```lua
 local main = Library:Init({
 	name = "Test",
-	intro = true
+	intro = true,
+	sounds = {
+		hover = "rbxassetid://10066936758",
+		click = "rbxassetid://10066936758",
+		start = "rbxassetid://4835664238"
+	}
 })
 ```
 *CREATE A TAB*
