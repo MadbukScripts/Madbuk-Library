@@ -1,4 +1,5 @@
 # Madbuk-Library
+```
 -- THESE ARE EXAMPLES --
 
 
@@ -80,3 +81,4 @@ local textbox = tab1:CreateTextbox({
 		print(txt)
 	end,
 })
+```
