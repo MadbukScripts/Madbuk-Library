@@ -92,7 +92,7 @@ slider:SetValue(100)
 
 ## ADD NEW DROPDOWN BUTTON
  ```lua
-local dropdown = tab1:CreateDropdown({
+local dropdown = tab:CreateDropdown({
 	name = "Dropdown",
 	callback = function(v)
 		print(v.." Was clicked")
@@ -115,7 +115,7 @@ dropdown:Remove("2a")
 
 ## CREATE A TEXTBOX
 ```lua
-local textbox = tab1:CreateTextbox({
+local textbox = tab:CreateTextbox({
 	name = "Textbox",
 	callback = function(txt)
 		print(txt)
