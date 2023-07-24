@@ -10,7 +10,8 @@ local main = MadbukLibrary:Init({
 		hover = "rbxassetid://10066936758",
 		click = "rbxassetid://10066936758",
 		type = "rbxassetid://10066936758",
-		start = "rbxassetid://4835664238"
+		start = "rbxassetid://4835664238",
+		notify = "rbxassetid://3318722848"
 	}
 })
 
