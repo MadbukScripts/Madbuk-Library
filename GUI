@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.4]") 
+warn("Madbuk Library - [V3]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -73,28 +73,37 @@ function Library:tween(object,num,goal)
 	tween:Play()
 end
 
+
+
+
 function Library:Init(Settings) 
 
-	
+
 	if Settings.multiple == false then
-	   for i,v in next, game:GetDescendants() do
-	       if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
-		  v:Destroy()
-	       end
-	   end
+		for i,v in next, game:GetDescendants() do
+			if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
+				v:Destroy()
+			end
+		end
 	end
 
 	if Settings.multiple == false then
-	   for i,v in next, game:GetDescendants() do
-	       if v:IsA("Folder") and v.Name == "Sounds" then
-	          v:Destroy()
-	       end
-	   end
+		for i,v in next, game:GetDescendants() do
+			if v:IsA("Folder") and v.Name == "Sounds" then
+				v:Destroy()
+			end
+		end
 	end
 
-    
+	if Settings.multiple == false then
+		for i,v in next, game:GetDescendants() do
+			if v:IsA("ScreenGui") and v.Name == "MadbukLibraryNotify" then
+				v:Destroy()
+			end
+		end
+	end
 
-	
+
 	local Window = {
 		CurrentTab = nil,
 		Hover = false
@@ -117,7 +126,7 @@ function Library:Init(Settings)
 	Window["31az"].Volume = 1
 	Window["31az"].Name = "Click"
 
-    Window["51az"] = Instance.new("Sound", Window["11az"])
+	Window["51az"] = Instance.new("Sound", Window["11az"])
 	Window["51az"].SoundId = Settings.sounds.type
 	Window["51az"].Volume = 1
 	Window["51az"].Name = "Type"
@@ -126,7 +135,7 @@ function Library:Init(Settings)
 	Window["41az"].SoundId = Settings.sounds.start
 	Window["41az"].Volume = 1
 	Window["41az"].Name = "Start"
-	
+
 
 	do
 		-- StarterWindow.MadbukLibrary
@@ -134,7 +143,7 @@ function Library:Init(Settings)
 		Window["1"]["Name"] = [[MadbukLibrary]];
 		Window["1"]["IgnoreGuiInset"] = true;
 
-		
+
 		-- StarterWindow.MadbukLibrary.Main
 		Window["2"] = Instance.new("Frame", Window["1"]);
 		Window["2"]["BorderSizePixel"] = 0;
@@ -843,8 +852,278 @@ function Library:Init(Settings)
 
 
 	end
+	-- StarterGui.ScreenGui.NotifyFrame
+	Window["Notif"] = Instance.new("Frame", Window["1"]);
+	Window["Notif"]["BorderSizePixel"] = 0;
+	Window["Notif"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Window["Notif"]["AnchorPoint"] = Vector2.new(1, 0);
+	Window["Notif"]["BackgroundTransparency"] = 1;
+	Window["Notif"]["Size"] = UDim2.new(0, 300, 0, viewport.Y);
+	Window["Notif"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Window["Notif"]["Position"] = UDim2.new(1, 0, 0, 0);
+	Window["Notif"]["Name"] = [[NotificationFrame]];
+
+	-- StarterGui.ScreenGui.WindowFrame.UIPadding
+	Window["16123"] = Instance.new("UIPadding", Window["Notif"]);
+	Window["16123"]["PaddingRight"] = UDim.new(0, 25);
+	Window["16123"]["PaddingBottom"] = UDim.new(0, 25);
+
+	-- StarterGui.ScreenGui.WindowFrame.UIPadding
+	Window["17123"] = Instance.new("UIListLayout", Window["Notif"]);
+	Window["17123"]["Padding"] = UDim.new(0, 5);
+	Window["17123"]["VerticalAlignment"] = "Bottom"
+
+	function Window:NotificationCreate(options)
+		local Notify = {
+			title = options.name,
+			description = options.description,
+			buttonEnabled = options.button.enabled,
+			callback = options.button.callback,
+			content = options.button.content,
+			icon = options.button.icon
+		}
 
 
+
+
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main
+		Notify["3"] = Instance.new("Frame", Window["Notif"]);
+		Notify["3"]["BorderSizePixel"] = 0;
+		Notify["3"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+		Notify["3"]["AnchorPoint"] = Vector2.new(0,1);
+		Notify["3"]["Position"] = UDim2.new(0,0,1,0)
+		Notify["3"]["BackgroundTransparency"] = 1;
+		Notify["3"]["Size"] = UDim2.new(0, 0, 0, 120);
+		Notify["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["3"]["Name"] = [[Main]];
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.UICorner
+		Notify["4"] = Instance.new("UICorner", Notify["3"]);
+		Notify["4"]["CornerRadius"] = UDim.new(0, 10);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Description
+		Notify["5"] = Instance.new("Frame", Notify["3"]);
+		Notify["5"]["ZIndex"] = 4;
+		Notify["5"]["BorderSizePixel"] = 0;
+		Notify["5"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+		Notify["5"]["BackgroundTransparency"] = 1;
+		Notify["5"]["Size"] = UDim2.new(1, 0, 0, 40);
+		Notify["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["5"]["Position"] = UDim2.new(0, 0, 0, 32);
+		Notify["5"]["Name"] = [[Description]];
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Description.Text
+		Notify["6"] = Instance.new("TextLabel", Notify["5"]);
+		Notify["6"]["TextWrapped"] = true;
+		Notify["6"]["ZIndex"] = 4;
+		Notify["6"]["BorderSizePixel"] = 0;
+		Notify["6"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+		Notify["6"]["BackgroundColor3"] = Color3.fromRGB(201, 201, 201);
+		Notify["6"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+		Notify["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+		Notify["6"]["TextSize"] = 13;
+		Notify["6"]["TextTransparency"] = 1;
+		Notify["6"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+		Notify["6"]["Archivable"] = false;
+		Notify["6"]["Size"] = UDim2.new(1, 0, 1, 0);
+		Notify["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["6"]["Text"] = Notify.description;
+		Notify["6"]["Name"] = [[Text]];
+		Notify["6"]["BackgroundTransparency"] = 1;
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Description.Text.UIPadding
+		Notify["7"] = Instance.new("UIPadding", Notify["6"]);
+		Notify["7"]["PaddingLeft"] = UDim.new(0, 10);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Description.UICorner
+		Notify["8"] = Instance.new("UICorner", Notify["5"]);
+
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title
+		Notify["9"] = Instance.new("Frame", Notify["3"]);
+		Notify["9"]["ZIndex"] = 4;
+		Notify["9"]["BorderSizePixel"] = 0;
+		Notify["9"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+		Notify["9"]["BackgroundTransparency"] = 1;
+		Notify["9"]["Size"] = UDim2.new(1, 0, 0, 20);
+		Notify["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["9"]["Position"] = UDim2.new(0, 0, 0, 10);
+		Notify["9"]["Name"] = [[Title]];
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.Icon
+		Notify["a"] = Instance.new("ImageLabel", Notify["9"]);
+		Notify["a"]["ZIndex"] = 4;
+		Notify["a"]["BorderSizePixel"] = 0;
+		Notify["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+		Notify["a"]["AnchorPoint"] = Vector2.new(1, 0);
+		Notify["a"]["Image"] = Notify.icon;
+		Notify["a"]["ImageTransparency"] = 1;
+		Notify["a"]["Size"] = UDim2.new(0, 20, 0, 20);
+		Notify["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["a"]["Name"] = [[Icon]];
+		Notify["a"]["BackgroundTransparency"] = 1;
+		Notify["a"]["Position"] = UDim2.new(0, 25, 0, 0);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.Text
+		Notify["b"] = Instance.new("TextLabel", Notify["9"]);
+		Notify["b"]["ZIndex"] = 4;
+		Notify["b"]["BorderSizePixel"] = 0;
+		Notify["b"]["BackgroundColor3"] = Color3.fromRGB(201, 201, 201);
+		Notify["b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+		Notify["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+		Notify["b"]["TextSize"] = 15;
+		Notify["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+		Notify["b"]["Size"] = UDim2.new(1, 0, 1, 0);
+		Notify["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Notify["b"]["TextTransparency"] = 1;
+		Notify["b"]["Text"] = Notify.title;
+		Notify["b"]["Name"] = [[Text]];
+		Notify["b"]["BackgroundTransparency"] = 1;
+		Notify["b"]["Position"] = UDim2.new(0, 20, 0, 0);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.Text.UIPadding
+		Notify["c"] = Instance.new("UIPadding", Notify["b"]);
+		Notify["c"]["PaddingLeft"] = UDim.new(0, 10);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.UIPadding
+		Notify["d"] = Instance.new("UIPadding", Notify["9"]);
+		Notify["d"]["PaddingLeft"] = UDim.new(0, 5);
+
+		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.UICorner
+		Notify["e"] = Instance.new("UICorner", Notify["9"]);
+
+
+		if Notify.buttonEnabled then
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container
+			Notify["f"] = Instance.new("Frame", Notify["3"]);
+			Notify["f"]["BorderSizePixel"] = 0;
+			Notify["f"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+			Notify["f"]["Size"] = UDim2.new(1, -6, 1, -6);
+			Notify["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Notify["f"]["Position"] = UDim2.new(0, 3, 0, 3);
+			Notify["f"]["Name"] = [[Container]];
+			Notify["f"]["BackgroundTransparency"] = 1;
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.Button
+			Notify["10"] = Instance.new("TextButton", Notify["f"]);
+			Notify["10"]["Active"] = false;
+			Notify["10"]["BorderSizePixel"] = 0;
+			Notify["10"]["AutoButtonColor"] = false;
+			Notify["10"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+			Notify["10"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57);
+			Notify["10"]["TextSize"] = 14;
+			Notify["10"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			Notify["10"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			Notify["10"]["Selectable"] = false;
+			Notify["10"]["AnchorPoint"] = Vector2.new(0, 1);
+			Notify["10"]["Size"] = UDim2.new(0, 90, 0, 37);
+			Notify["10"]["TextTransparency"] = 1;
+			Notify["10"]["Name"] = [[Button]];
+			Notify["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Notify["10"]["Text"] = Notify.content;
+			Notify["10"]["Position"] = UDim2.new(0, 5, 1, 0);
+			Notify["10"]["BackgroundTransparency"] = 1;
+
+			Notify["10"].MouseEnter:Connect(function()
+				Library:tween(Notify["10"], 0.2, {BackgroundColor3 = Color3.fromRGB(90,90,90)})
+				Library:tween(Notify["10"], 0.2, {TextColor3 = Color3.fromRGB(160,160,160)})
+			end)
+
+			Notify["10"].MouseLeave:Connect(function()
+				Library:tween(Notify["10"], 0.2, {BackgroundColor3 = Color3.fromRGB(57,57,57)})
+				Library:tween(Notify["10"], 0.2, {TextColor3 = Color3.fromRGB(255,255,255)})
+			end)
+
+			Notify["10"].MouseButton1Click:Connect(function()
+				tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.550000001192092896}):Play()
+				tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55}):Play()
+				tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55000000059604645}):Play()
+				tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55000000059604645}):Play()
+				tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55}):Play()
+				tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
+				tweenService:Create(Notify["11"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
+				tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55}):Play()
+
+				Notify.callback()
+				wait(1)
+				Library:tween(Notify["3"], 0.7, {Size = UDim2.new(0,0,0,120)})
+				tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+				tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+				tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+				tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
+				tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
+				tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
+				tweenService:Create(Notify["11"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
+				tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
+
+				wait(0.75)
+				Notify["3"]:Destroy()	
+
+			end)
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.Button.Indicator
+			Notify["11"] = Instance.new("ImageLabel", Notify["10"]);
+			Notify["11"]["BorderSizePixel"] = 0;
+			Notify["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Notify["11"]["ImageColor3"] = Color3.fromRGB(71, 71, 71);
+			Notify["11"]["AnchorPoint"] = Vector2.new(1, 0.5);
+			Notify["11"]["Image"] = [[rbxassetid://13965851117]];
+			Notify["11"]["Size"] = UDim2.new(0, 20, 0, 20);
+			Notify["11"]["ImageTransparency"] = 1;
+			Notify["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Notify["11"]["Name"] = [[Indicator]];
+			Notify["11"]["BackgroundTransparency"] = 1;
+			Notify["11"]["Position"] = UDim2.new(1, -10, 0.5, 0);
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.Button.UIPadding
+			Notify["12"] = Instance.new("UIPadding", Notify["10"]);
+			Notify["12"]["PaddingLeft"] = UDim.new(0, 10);
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.Button.UICorner
+			Notify["13"] = Instance.new("UICorner", Notify["10"]);
+
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.UIPadding
+			Notify["14"] = Instance.new("UIPadding", Notify["f"]);
+			Notify["14"]["PaddingRight"] = UDim.new(0, 4);
+			Notify["14"]["PaddingBottom"] = UDim.new(0, 4);
+
+			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.UICorner
+			Notify["15"] = Instance.new("UICorner", Notify["f"]);
+			Notify["15"]["CornerRadius"] = UDim.new(0, 10);
+
+		end
+
+
+
+
+		wait(1)
+
+		Library:tween(Notify["3"], 0.75, {Size = UDim2.new(1,0,0,120)})
+		tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.550000001192092896}):Play()
+		tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55}):Play()
+		tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55000000059604645}):Play()
+		tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55000000059604645}):Play()
+		tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55}):Play()
+		tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
+		tweenService:Create(Notify["11"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
+		tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55}):Play()
+
+		wait(1.3)
+
+		tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.30000001192092896}):Play()
+		tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
+		tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.4000000059604645}):Play()
+		tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
+		tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
+		tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0}):Play()
+		tweenService:Create(Notify["11"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0}):Play()
+		tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
+
+
+		return Notify
+	end
 
 	function Window:CreateTab(options)
 		local Tab = {
@@ -1106,7 +1385,7 @@ function Library:Init(Settings)
 		function Tab:CreateToggle(ToggleSettings)
 			local Toggle = {
 				Hover = false,
-                State = false
+				State = false
 			}
 
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.ToggleOff
@@ -1157,7 +1436,7 @@ function Library:Init(Settings)
 				end
 
 				ToggleSettings.callback(Toggle.State)
-                 
+
 			end
 
 			Toggle["5c"].MouseEnter:Connect(function()
@@ -1341,7 +1620,7 @@ function Library:Init(Settings)
 					Library:tween(Slider["38"], 0.2, {Size = UDim2.fromScale(((v - SliderSettings.min) / (SliderSettings.max - SliderSettings.min)), 1)})
 				end
 				SliderSettings.callback(Slider:GetValue())
-                 
+
 			end
 
 			function Slider:GetValue()
@@ -1369,7 +1648,7 @@ function Library:Init(Settings)
 
 				Slider["2f"].MouseButton1Down:Connect(function()
 					Slider.MouseDown = true
-                    Window["31az"]:Play()
+					Window["31az"]:Play()
 					if not Slider.Connection then
 						Slider.Connection = runService.RenderStepped:Connect(function()
 							Window["21az"]:Play()
@@ -1389,7 +1668,7 @@ function Library:Init(Settings)
 
 				Slider["36"].MouseButton1Down:Connect(function()
 					Slider.MouseDown = true
-                    Window["31az"]:Play()
+					Window["31az"]:Play()
 					if not Slider.Connection then
 						Slider.Connection = runService.RenderStepped:Connect(function()
 							Window["21az"]:Play()
@@ -1416,7 +1695,7 @@ function Library:Init(Settings)
 					end
 				end)
 
-                Slider["38"].MouseButton1Up:Connect(function()
+				Slider["38"].MouseButton1Up:Connect(function()
 					Slider.MouseDown = false
 
 					if Slider.Connection then Slider.Connection:Disconnect() end
@@ -1748,18 +2027,18 @@ function Library:Init(Settings)
 			Textbox["57"].FocusLost:Connect(function()
 				local txt = Textbox["57"].Text
 				TextboxSettings.callback(txt)
-                 
+
 			end)
 
-            function Textbox:Set(txt)
-                Textbox["57"].Text = txt
-            end
-                
+			function Textbox:Set(txt)
+				Textbox["57"].Text = txt
+			end
+
 
 			AddConnection(Textbox["57"]:GetPropertyChangedSignal("Text"), function()
-					Window["51az"]:Play()
-					tweenService:Create(Textbox["57"], TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 35)}):Play()
-				end)
+				Window["51az"]:Play()
+				tweenService:Create(Textbox["57"], TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 35)}):Play()
+			end)
 
 			return Textbox
 		end
