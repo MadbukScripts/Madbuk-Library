@@ -1,4 +1,4 @@
-## Madbuk Library
+## Madbuk Library 
 -- THESE ARE EXAMPLES --
 
 ## STARTING THE LIBRARY
