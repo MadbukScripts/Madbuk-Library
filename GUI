@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.2]") 
+warn("Madbuk Library - [V2.3]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1150,7 +1150,7 @@ function Library:Init(Settings)
 			Toggle["5c"]["Text"] = ""
 
 			function Toggle:toggle()
-				if options.state then
+				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
@@ -1164,7 +1164,7 @@ function Library:Init(Settings)
 				Toggle.Hover = true
 				Window["21az"]:Play()
 
-				if options.state then
+				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(0,255,170)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(66,66,66)})
@@ -1416,6 +1416,12 @@ function Library:Init(Settings)
 					end
 				end)
 
+                Slider["38"].MouseButton1Up:Connect(function()
+					Slider.MouseDown = false
+
+					if Slider.Connection then Slider.Connection:Disconnect() end
+					Slider.Connection = nil
+				end)
 
 
 
