@@ -1150,7 +1150,7 @@ function Library:Init(Settings)
 			Toggle["5c"]["Text"] = ""
 
 			function Toggle:toggle()
-				if  then
+				if options.state then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
@@ -1164,7 +1164,7 @@ function Library:Init(Settings)
 				Toggle.Hover = true
 				Window["21az"]:Play()
 
-				if  then
+				if options.state then
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(0,255,170)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(66,66,66)})
@@ -1173,7 +1173,7 @@ function Library:Init(Settings)
 			Toggle["5c"].MouseLeave:Connect(function()
 				Toggle.Hover = false
 
-				if Toggle.State  then
+				if Toggle.State then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
@@ -1192,8 +1192,8 @@ function Library:Init(Settings)
 				Window["31az"]:Play()
 			end)
 
-			function Toggle:Set(options)
-				Toggle.State = options.state
+			function Toggle:Set(state)
+				Toggle.State = state
 				Toggle:toggle()
 			end
 
@@ -1418,17 +1418,10 @@ function Library:Init(Settings)
 
 
 
-				Slider["38"].MouseButton1Up:Connect(function()
-					Slider.MouseDown = false
-
-					if Slider.Connection then Slider.Connection:Disconnect() end
-					Slider.Connection = nil
-				end)
-
 
 			end
 
-			return SliderSettings
+			return Slider
 		end
 
 		function Tab:CreateDropdown(options)
@@ -1762,10 +1755,11 @@ function Library:Init(Settings)
 					tweenService:Create(Textbox["57"], TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 35)}):Play()
 				end)
 
-			return TextboxSettings
+			return Textbox
 		end
 		return Tab
 	end
 	return Window
 end
 return Library
+
