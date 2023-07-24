@@ -1150,13 +1150,13 @@ function Library:Init(Settings)
 			Toggle["5c"]["Text"] = ""
 
 			function Toggle:toggle()
-				if Toggle.State then
+				if  then
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(0,255,127)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
 
-				ToggleSettings.callback(Toggle.State)
+				ToggleSettings.callback()
                  
 			end
 
@@ -1164,7 +1164,7 @@ function Library:Init(Settings)
 				Toggle.Hover = true
 				Window["21az"]:Play()
 
-				if Toggle.State then
+				if  then
 					Library:tween(Toggle["5c"], 0.2, {BackgroundColor3 = Color3.fromRGB(0,255,170)})
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(66,66,66)})
@@ -1192,8 +1192,8 @@ function Library:Init(Settings)
 				Window["31az"]:Play()
 			end)
 
-			function Toggle:Set(state)
-				Toggle.State = state
+			function Toggle:Set(options)
+				Toggle.State = options.state
 				Toggle:toggle()
 			end
 
@@ -1223,7 +1223,7 @@ function Library:Init(Settings)
 			Toggle["60"] = Instance.new("UIPadding", Toggle["5f"]);
 			Toggle["60"]["PaddingLeft"] = UDim.new(0, 10);
 
-			return ToggleSettings
+			return Toggle
 		end
 
 		function Tab:CreateSlider(SliderSettings)
