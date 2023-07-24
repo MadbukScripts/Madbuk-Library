@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V3.1]") 
+warn("Madbuk Library - [V3.2]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -138,7 +138,7 @@ function Library:Init(Settings)
 
 	Window["61az"] = Instance.new("Sound", Window["11az"])
 	Window["61az"].SoundId = Settings.sounds.notify
-	Window["61az"].Volume = 1
+	Window["61az"].Volume = 5
 	Window["61az"].Name = "Notify"
 
 
