@@ -118,7 +118,7 @@ function Library:Init(Settings)
 
 	Window["21az"] = Instance.new("Sound", Window["11az"])
 	Window["21az"].SoundId = Settings.sounds.hover
-	Window["21az"].Volume = 0.2
+	Window["21az"].Volume = 0.3
 	Window["21az"].Name = "Hover"
 
 	Window["31az"] = Instance.new("Sound", Window["11az"])
