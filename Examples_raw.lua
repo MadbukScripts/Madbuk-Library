@@ -2,6 +2,19 @@
 
 local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI"))()
 
+MadbukLibrary:Notify({
+	name = "Success",
+	description = "Successfully executed the script!",
+	icon = "rbxassetid://13965544901",
+	button = {
+		enabled = true,
+		content = "Okay!",
+		callback = function()
+			print("Okay!")
+		end,
+	}
+})
+
 local main = MadbukLibrary:Init({
 	name = "example",
 	intro = true,
