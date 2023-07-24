@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V3.45]") 
+warn("Madbuk Library - [V3.5]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -885,7 +885,7 @@ function Library:Init(Settings)
 			buttonEnabled = options.button.enabled,
 			callback = options.button.callback,
 			content = options.button.content,
-			icon = options.icon
+			icon = options.button.icon
 		}
 
 
