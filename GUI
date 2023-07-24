@@ -885,7 +885,7 @@ function Library:Init(Settings)
 			buttonEnabled = options.button.enabled,
 			callback = options.button.callback,
 			content = options.button.content,
-			icon = options.button.icon
+			icon = options.icon
 		}
 
 
