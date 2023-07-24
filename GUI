@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2]") 
+warn("Madbuk Library - [V2.1]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -10,9 +10,24 @@ local mouse = plr:GetMouse()
 
 local viewport = workspace.CurrentCamera.ViewportSize
 
-local Library = {}
+local Library = {
+	Connections = {}
+}
 
 local UIS = game:GetService("UserInputService")
+
+local function AddConnection(Signal, Function)
+	local SignalConnect = Signal:Connect(Function)
+	table.insert(Library.Connections, SignalConnect)
+	return SignalConnect
+end
+
+task.spawn(function()
+	for _, Connection in next, Library.Connections do
+		Connection:Disconnect()
+	end
+end)
+
 function dragify(Frame)
 	dragToggle = nil
 	local dragSpeed = 999
@@ -1728,19 +1743,10 @@ function Library:Init(options)
 				options.callback(txt)
 			end)
 
-			Textbox["57"]:GetPropertyChangedSignal("Text"):Connect(function()
-				if Textbox["57"].CursorPosition == -1 then return end
-				local letters = tonumber(Textbox["57"].CursorPosition)
-
-
-				if letters >= 16 then
-					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.7,0,0) - UDim2.new(0,10,0,0) 
-				elseif letters >= 7 then
-					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.4,0,0) - UDim2.new(0,10,0,0) 
-				else
-					Textbox["57"].Size = UDim2.new(0,25,0,35) + UDim2.new(0,letters*5.1,0,0) - UDim2.new(0,10,0,0)
-				end
-			end)
+			AddConnection(Textbox["57"]:GetPropertyChangedSignal("Text"), function()
+					--TextContainer.Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)
+					TweenService:Create(TextContainer, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)}):Play()
+				end)
 
 			return Textbox
 		end
