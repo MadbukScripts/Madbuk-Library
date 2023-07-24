@@ -15,6 +15,7 @@ local main = MadbukLibrary:Init({
 	sounds = {
 		hover = "rbxassetid://10066936758",
 		click = "rbxassetid://10066936758",
+		type = "rbxassetid://10066936758",
 		start = "rbxassetid://4835664238"
 	}
 })
