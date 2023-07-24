@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V3.3]") 
+warn("Madbuk Library - [V3.4]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1129,7 +1129,16 @@ function Library:Init(Settings)
 		tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 		tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0}):Play()
 		tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
-
+		if Notify.buttonEnabled == false then
+		wait(3)
+				Library:tween(Notify["3"], 0.7, {Size = UDim2.new(0,0,0,120)})
+				tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+				tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
+				tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
+				tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
+		wait(0.9)
+		Notify["3"]:Destroy()
+		end
 
 		return Notify
 	end
