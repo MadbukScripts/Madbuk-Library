@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.17]") 
+warn("Madbuk Library - [V2.2]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -746,7 +746,7 @@ function Library:Init(options)
 			Window["700"]["AnchorPoint"] = Vector2.new(0, 0.5);
 			Window["700"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["700"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Window["700"]["Text"] = options.name;
+			Window["700"]["Text"] = "Madbuk Scripts";
 			Window["700"]["Name"] = [[Name]];
 			Window["700"]["TextTransparency"] = 1;
 			Window["700"]["BackgroundTransparency"] = 1;
