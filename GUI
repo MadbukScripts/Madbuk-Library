@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.1]") 
+warn("Madbuk Library - [V2.15]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1745,7 +1745,7 @@ function Library:Init(options)
 
 			AddConnection(Textbox["57"]:GetPropertyChangedSignal("Text"), function()
 					--TextContainer.Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)
-					TweenService:Create(TextContainer, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)}):Play()
+					TweenService:Create(Textbox["57"], TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)}):Play()
 				end)
 
 			return Textbox
