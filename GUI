@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.2]") 
+warn("Madbuk Library - [3]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -11,8 +11,45 @@ local mouse = plr:GetMouse()
 local viewport = workspace.CurrentCamera.ViewportSize
 
 local Library = {
-	Connections = {}
+	Connections = {},
+    Flags = {}
 }
+
+local MadbukFolder = "Madbuk"
+local ConfigurationFolder = MadbukFolder.."/Configurations"
+local ConfigurationExtension = ".txt"
+local CFileName = nil
+local CEnabled = false
+
+local function LoadConfiguration(Configuration)
+	local Data = HttpService:JSONDecode(Configuration)
+	for FlagName, FlagValue in next, Data do
+		if Library.Flags[FlagName] then
+			spawn(function() 
+				if Library.Flags[FlagName].Type == "ColorPicker" then
+					Library.Flags[FlagName]:Set(UnpackColor(FlagValue))
+				else
+					if Library.Flags[FlagName].CurrentValue or Library.Flags[FlagName].CurrentKeybind or Library.Flags[FlagName].CurrentOption or Library.Flags[FlagName].Color ~= FlagValue then Library.Flags[FlagName]:Set(FlagValue) end
+				end    
+			end)
+		else
+			print("Flag Error")
+		end
+	end
+end
+
+local function SaveConfiguration()
+	if not CEnabled then return end
+	local Data = {}
+	for i,v in pairs(Library.Flags) do
+		if v.Type == "ColorPicker" then
+			Data[i] = PackColor(v.Color)
+		else
+			Data[i] = v.CurrentValue or v.CurrentKeybind or v.CurrentOption or v.Color
+		end
+	end	
+	writefile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension, tostring(HttpService:JSONEncode(Data)))
+end
 
 local UIS = game:GetService("UserInputService")
 
@@ -71,10 +108,10 @@ function Library:tween(object,num,goal)
 	tween:Play()
 end
 
-function Library:Init(options) 
+function Library:Init(Settings) 
 
 	
-	if options.multiple == false then
+	if Settings.multiple == false then
 	   for i,v in next, game:GetDescendants() do
 	       if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
 		  v:Destroy()
@@ -82,13 +119,34 @@ function Library:Init(options)
 	   end
 	end
 
-	if options.multiple == false then
+	if Settings.multiple == false then
 	   for i,v in next, game:GetDescendants() do
 	       if v:IsA("Folder") and v.Name == "Sounds" then
 	          v:Destroy()
 	       end
 	   end
 	end
+
+    pcall(function()
+		if not Settings.config.FileName then
+			Settings.config.FileName = tostring(game.PlaceId)
+		end
+		if not isfolder(MadbukFolder.."/".."Configuration Folders") then
+
+		end
+		if Settings.config.enabled == nil then
+			Settings.config.enabled = false
+		end
+		CFileName = Settings.config.FileName
+		ConfigurationFolder = Settings.config.FolderName or ConfigurationFolder
+		CEnabled = Settings.config.enabled
+
+		if Settings.config.enabled then
+			if not isfolder(ConfigurationFolder) then
+				makefolder(ConfigurationFolder)
+			end	
+		end
+	end)
 	
 	local Window = {
 		CurrentTab = nil,
@@ -103,17 +161,17 @@ function Library:Init(options)
 	Window["11az"].Name = "Sounds"
 
 	Window["21az"] = Instance.new("Sound", Window["11az"])
-	Window["21az"].SoundId = options.sounds.hover
+	Window["21az"].SoundId = Settings.sounds.hover
 	Window["21az"].Volume = 0.2
 	Window["21az"].Name = "Hover"
 
 	Window["31az"] = Instance.new("Sound", Window["11az"])
-	Window["31az"].SoundId = options.sounds.click
+	Window["31az"].SoundId = Settings.sounds.click
 	Window["31az"].Volume = 1
 	Window["31az"].Name = "Click"
 
 	Window["41az"] = Instance.new("Sound", Window["11az"])
-	Window["41az"].SoundId = options.sounds.start
+	Window["41az"].SoundId = Settings.sounds.start
 	Window["41az"].Volume = 1
 	Window["41az"].Name = "Start"
 	
@@ -223,7 +281,7 @@ function Library:Init(options)
 		Window["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 		Window["8"]["Size"] = UDim2.new(0, 400, 0, 40);
 		Window["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["8"]["Text"] = options["name"];
+		Window["8"]["Text"] = Settings["name"];
 		Window["8"]["Name"] = [[Title]];
 		Window["8"]["BackgroundTransparency"] = 1;
 
@@ -360,7 +418,7 @@ function Library:Init(options)
 			Window["9000"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 			Window["9000"]["Size"] = UDim2.new(0, 400, 0, 40);
 			Window["9000"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Window["9000"]["Text"] = options.name;
+			Window["9000"]["Text"] = Settings.name;
 			Window["9000"]["Name"] = [[Title]];
 			Window["9000"]["BackgroundTransparency"] = 1;
 
@@ -685,7 +743,7 @@ function Library:Init(options)
 
 
 
-		if options.intro then
+		if Settings.intro then
 
 			-- StarterGui.Window.Main
 			Window["200"] = Instance.new("Frame", Window["1"]);
@@ -1093,7 +1151,7 @@ function Library:Init(options)
 			return Label
 		end
 
-		function Tab:CreateToggle(options)
+		function Tab:CreateToggle(ToggleSettings)
 			local Toggle = {
 				Hover = false,
 				State = false
@@ -1147,7 +1205,8 @@ function Library:Init(options)
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
 
-				options.callback(Toggle.State)
+				ToggleSettings.callback(Toggle.State)
+                SaveConfiguration()
 			end
 
 			Toggle["5c"].MouseEnter:Connect(function()
@@ -1182,8 +1241,8 @@ function Library:Init(options)
 				Window["31az"]:Play()
 			end)
 
-			function Toggle:Set(options)
-				Toggle.State = options.state
+			function Toggle:Set(ToggleSettings)
+				Toggle.State = ToggleSettings.state
 				Toggle:toggle()
 			end
 
@@ -1205,7 +1264,7 @@ function Library:Init(options)
 			Toggle["5f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 			Toggle["5f"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Toggle["5f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Toggle["5f"]["Text"] = options.name;
+			Toggle["5f"]["Text"] = ToggleSettings.name;
 			Toggle["5f"]["Name"] = [[Text]];
 			Toggle["5f"]["BackgroundTransparency"] = 1;
 
@@ -1213,11 +1272,16 @@ function Library:Init(options)
 			Toggle["60"] = Instance.new("UIPadding", Toggle["5f"]);
 			Toggle["60"]["PaddingLeft"] = UDim.new(0, 10);
 
+			if Settings.config then
+				if Settings.config.enabled and ToggleSettings.Flag then
+					Library.Flags[ToggleSettings.Flag] = ToggleSettings
+				end
+			end
 
 			return Toggle
 		end
 
-		function Tab:CreateSlider(options)
+		function Tab:CreateSlider(SliderSettings)
 			local Slider = {
 				Hover = false,
 				State = false,
@@ -1258,7 +1322,7 @@ function Library:Init(options)
 			Slider["32"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 			Slider["32"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Slider["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Slider["32"]["Text"] = options.name;
+			Slider["32"]["Text"] = SliderSettings.name;
 			Slider["32"]["Name"] = [[Text]];
 			Slider["32"]["BackgroundTransparency"] = 1;
 
@@ -1278,7 +1342,7 @@ function Library:Init(options)
 			Slider["34"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 			Slider["34"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Slider["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Slider["34"]["Text"] = tostring(options.default);
+			Slider["34"]["Text"] = tostring(SliderSettings.default);
 			Slider["34"]["Name"] = [[Value]];
 			Slider["34"]["BackgroundTransparency"] = 1;
 
@@ -1324,15 +1388,16 @@ function Library:Init(options)
 			function Slider:SetValue(v)
 				if v == nil then
 					local percentage = math.clamp((mouse.X - Slider["36"].AbsolutePosition.X) / (Slider["36"].AbsoluteSize.X), 0, 1)
-					local value = ((options.max - options.min) * percentage) + options.min
+					local value = ((SliderSettings.max - SliderSettings.min) * percentage) + SliderSettings.min
 
 					Slider["34"].Text = tostring(math.ceil(value))
 					Library:tween(Slider["38"], 0.2, {Size = UDim2.fromScale(percentage, 1)})
 				else
 					Slider["34"].Text = tostring(math.ceil(v))
-					Library:tween(Slider["38"], 0.2, {Size = UDim2.fromScale(((v - options.min) / (options.max - options.min)), 1)})
+					Library:tween(Slider["38"], 0.2, {Size = UDim2.fromScale(((v - SliderSettings.min) / (SliderSettings.max - SliderSettings.min)), 1)})
 				end
-				options.callback(Slider:GetValue())
+				SliderSettings.callback(Slider:GetValue())
+                SaveConfiguration()
 			end
 
 			function Slider:GetValue()
@@ -1417,6 +1482,13 @@ function Library:Init(options)
 				end)
 
 
+			end
+
+
+            if Settings.config then
+				if Settings.config.enabled and SliderSettings.Flag then
+					Library.Flags[SliderSettings.Flag] = SliderSettings
+				end
 			end
 
 			return Slider
@@ -1666,7 +1738,7 @@ function Library:Init(options)
 			return Dropdown
 		end
 
-		function Tab:CreateTextbox(options)
+		function Tab:CreateTextbox(TextboxSettings)
 			local Textbox = {
 
 			}
@@ -1699,7 +1771,7 @@ function Library:Init(options)
 			Textbox["55"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 			Textbox["55"]["Size"] = UDim2.new(0, 370, 0, 50);
 			Textbox["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Textbox["55"]["Text"] = options.name;
+			Textbox["55"]["Text"] = TextboxSettings.name;
 			Textbox["55"]["Name"] = [[Text]];
 			Textbox["55"]["BackgroundTransparency"] = 1;
 
@@ -1740,13 +1812,19 @@ function Library:Init(options)
 
 			Textbox["57"].FocusLost:Connect(function()
 				local txt = Textbox["57"].text
-				options.callback(txt)
+				TextboxSettings.callback(txt)
+                SaveConfiguration()
 			end)
 
 			AddConnection(Textbox["57"]:GetPropertyChangedSignal("Text"), function()
 					--TextContainer.Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 24)
 					tweenService:Create(Textbox["57"], TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Textbox["57"].TextBounds.X + 16, 0, 35)}):Play()
 				end)
+            if Settings.config then
+				if Settings.config.enabled and TextboxSettings.Flag then
+					Library.Flags[TextboxSettings.Flag] = TextboxSettings
+				end
+			end
 
 			return Textbox
 		end
@@ -1754,4 +1832,88 @@ function Library:Init(options)
 	end
 	return Window
 end
+function Library:LoadConfiguration()
+	if CEnabled then
+		pcall(function()
+			if isfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension) then
+				LoadConfiguration(readfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension))
+				print("Config Loaded")
+			end
+		end)
+	end
+end
+
+task.delay(3.5, Library.LoadConfiguration, Library)
 return Library
+
+
+local main = Library:Init({
+	name = "Test",
+	intro = true,
+    multiple = false,
+    config = {
+        enabled = true,
+        FolderName = "Madbuk Scripts",
+        FileName = "Test"
+    },
+	sounds = {
+		hover = "rbxassetid://10066936758",
+		click = "rbxassetid://10066936758",
+		start = "rbxassetid://4835664238"
+	}
+})
+
+local tab = main:CreateTab({
+	name = "Test1",
+	icon = "rbxassetid://13965544901"
+})
+
+local label = tab:CreateLabel({
+	text = "test"
+})
+
+local toggle = tab:CreateToggle({
+	name = "test",
+	callback = function(value)
+		local val = value
+		if val then
+			print("true")
+		else
+			print("false")
+		end
+	end,
+})
+
+local button = tab:CreateButton({
+	name = "test1",
+	callback = function()
+		print("test")
+	end,
+})
+
+local slider = tab:CreateSlider({
+	name = "WalkSpeed",
+	min = 16,
+	default = 16,
+	max = 250,
+	callback = function(value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+	end,
+})
+
+local dropdown = tab:CreateDropdown({
+   name = "Dropdown",
+   callback = function(v)
+   	print(v.." Was clicked")
+   end,	
+})
+
+dropdown:Add("1a")
+dropdown:Add("2a")
+
+local textbox = tab:CreateTextbox({
+	name = "Textbox",
+	callback = function(txt)
+		print(txt)
+	end,
+})
