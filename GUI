@@ -30,6 +30,11 @@ task.spawn(function()
 	end
 end)
 
+-- StarterWindow.MadbukLibrary
+GUI = Instance.new("ScreenGui", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui);
+GUI["Name"] = [[MadbukLibrary]];
+GUI["IgnoreGuiInset"] = true;
+
 function dragify(Frame)
 	dragToggle = nil
 	local dragSpeed = 999
@@ -74,68 +79,8 @@ function Library:tween(object,num,goal)
 	tween:Play()
 end
 
-function Library:Init(Settings) 
 
-	
-	if Settings.multiple == false then
-	   for i,v in next, game:GetDescendants() do
-	       if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
-		  v:Destroy()
-	       end
-	   end
-	end
-
-	if Settings.multiple == false then
-	   for i,v in next, game:GetDescendants() do
-	       if v:IsA("Folder") and v.Name == "Sounds" then
-	          v:Destroy()
-	       end
-	   end
-	end
-
-    
-
-	
-	local Window = {
-		CurrentTab = nil,
-		Hover = false
-	}
-
-
-
-	--Main
-
-	Window["11az"] = Instance.new("Folder", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui)
-	Window["11az"].Name = "Sounds"
-
-	Window["21az"] = Instance.new("Sound", Window["11az"])
-	Window["21az"].SoundId = Settings.sounds.hover
-	Window["21az"].Volume = 0.2
-	Window["21az"].Name = "Hover"
-
-	Window["31az"] = Instance.new("Sound", Window["11az"])
-	Window["31az"].SoundId = Settings.sounds.click
-	Window["31az"].Volume = 1
-	Window["31az"].Name = "Click"
-
-    Window["51az"] = Instance.new("Sound", Window["11az"])
-	Window["51az"].SoundId = Settings.sounds.type
-	Window["51az"].Volume = 1
-	Window["51az"].Name = "Type"
-
-	Window["41az"] = Instance.new("Sound", Window["11az"])
-	Window["41az"].SoundId = Settings.sounds.start
-	Window["41az"].Volume = 1
-	Window["41az"].Name = "Start"
-	
-
-	do
-		-- StarterWindow.MadbukLibrary
-		Window["1"] = Instance.new("ScreenGui", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui);
-		Window["1"]["Name"] = [[MadbukLibrary]];
-		Window["1"]["IgnoreGuiInset"] = true;
-
-Window["Notif"] = Instance.new("Frame", Window["1"]);
+Window["Notif"] = Instance.new("Frame", GUI);
 	Window["Notif"]["BorderSizePixel"] = 0;
 	Window["Notif"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 	Window["Notif"]["AnchorPoint"] = Vector2.new(1, 0);
@@ -400,9 +345,66 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 		return Notification
 	end
 
+function Library:Init(Settings) 
+
+	
+	if Settings.multiple == false then
+	   for i,v in next, game:GetDescendants() do
+	       if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
+		  v:Destroy()
+	       end
+	   end
+	end
+
+	if Settings.multiple == false then
+	   for i,v in next, game:GetDescendants() do
+	       if v:IsA("Folder") and v.Name == "Sounds" then
+	          v:Destroy()
+	       end
+	   end
+	end
+
+    
+
+	
+	local Window = {
+		CurrentTab = nil,
+		Hover = false
+	}
+
+
+
+	--Main
+
+	Window["11az"] = Instance.new("Folder", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui)
+	Window["11az"].Name = "Sounds"
+
+	Window["21az"] = Instance.new("Sound", Window["11az"])
+	Window["21az"].SoundId = Settings.sounds.hover
+	Window["21az"].Volume = 0.2
+	Window["21az"].Name = "Hover"
+
+	Window["31az"] = Instance.new("Sound", Window["11az"])
+	Window["31az"].SoundId = Settings.sounds.click
+	Window["31az"].Volume = 1
+	Window["31az"].Name = "Click"
+
+    Window["51az"] = Instance.new("Sound", Window["11az"])
+	Window["51az"].SoundId = Settings.sounds.type
+	Window["51az"].Volume = 1
+	Window["51az"].Name = "Type"
+
+	Window["41az"] = Instance.new("Sound", Window["11az"])
+	Window["41az"].SoundId = Settings.sounds.start
+	Window["41az"].Volume = 1
+	Window["41az"].Name = "Start"
+	
+
+	do
+
 		
 		-- StarterWindow.MadbukLibrary.Main
-		Window["2"] = Instance.new("Frame", Window["1"]);
+		Window["2"] = Instance.new("Frame", GUI);
 		Window["2"]["BorderSizePixel"] = 0;
 		Window["2"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50);
 		Window["2"]["AnchorPoint"] = Vector2.new(0, 0);
@@ -547,7 +549,7 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 		--Minimize anim
 		do
 			-- StarterGui.Minimize.MinimizeFrame
-			Window["2000"] = Instance.new("Frame", Window["1"]);
+			Window["2000"] = Instance.new("Frame", GUI);
 			Window["2000"]["BorderSizePixel"] = 0;
 			Window["2000"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50);
 			Window["2000"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
@@ -587,7 +589,7 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 			Window["5000"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
 
 			-- Starte000rGui.Minimize.TopBar
-			Window["6000"] = Instance.new("Frame", Window["1"]);
+			Window["6000"] = Instance.new("Frame", GUI);
 			Window["6000"]["BorderSizePixel"] = 0;
 			Window["6000"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
 			Window["6000"]["AnchorPoint"] = Vector2.new(0.5, 0);
@@ -712,7 +714,7 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 				Position = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2))
 			}):Play()
 			wait(0.1)
-			Window["1"]:Destroy()
+			GUI:Destroy()
 		end)
 
 		Window["e000"].MouseEnter:Connect(function()
@@ -813,7 +815,7 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 				Position = UDim2.new(0, Window["4"].AbsolutePosition.X + (Window["4"].AbsoluteSize.X / 2), 0, Window["4"].AbsolutePosition.Y + (Window["4"].AbsoluteSize.Y / 2))
 			}):Play()
 			wait(0.1)
-			Window["1"]:Destroy()
+			GUI:Destroy()
 		end)
 
 
@@ -964,7 +966,7 @@ Window["Notif"] = Instance.new("Frame", Window["1"]);
 		if Settings.intro then
 
 			-- StarterGui.Window.Main
-			Window["200"] = Instance.new("Frame", Window["1"]);
+			Window["200"] = Instance.new("Frame", GUI);
 			Window["200"]["BorderSizePixel"] = 0;
 			Window["200"]["BackgroundColor3"] = Color3.fromRGB(50,50,50);
 			Window["200"]["AnchorPoint"] = Vector2.new(0.5,0.5);
