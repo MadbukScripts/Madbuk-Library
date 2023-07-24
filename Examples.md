@@ -9,7 +9,7 @@ local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com
 ## INTRO TAB
 ```lua
 local main = MadbukLibrary:Init({
-	name = "Test",
+	name = "example",
 	intro = true,
 	multiple = false,
 	sounds = {
@@ -23,7 +23,7 @@ local main = MadbukLibrary:Init({
 ## CREATE A TAB
 ```lua
 local tab = main:CreateTab({
-	name = "Test1",
+	name = "example",
 	icon = "rbxassetid://13965544901"
 })
 ```
@@ -31,7 +31,7 @@ local tab = main:CreateTab({
 ## CREATE A BUTTON
 ```lua
 local button = tab:CreateButton({
-	name = "test1",
+	name = "example",
 	callback = function()
 		print("test")
 	end,
@@ -41,15 +41,13 @@ local button = tab:CreateButton({
 ## CREATE A LABEL
 ```lua
 local label = tab:CreateLabel({
-	text = "test"
+	text = "example"
 })
 ```
 
 ## SET A LABEL
 ```lua
-label:Set({
-            text = "beans"
-        })
+label:Set("beans")
 ```
 
 ## CREATE A TOGGLE
@@ -69,20 +67,18 @@ local toggle = tab:CreateToggle({
 
 ## SET A TOGGLE
 ```lua
-toggle:Set({
-            state = true
-        })
+toggle:Set(true)
 ```
 
 ## CREATE A SLIDER
 ```lua
 local slider = tab:CreateSlider({
-	name = "WalkSpeed",
-	min = 16,
-	default = 16,
+	name = "example",
+	min = 1,
+	default = 1,
 	max = 250,
 	callback = function(value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+		print(value)
 	end,
 })
 ```
