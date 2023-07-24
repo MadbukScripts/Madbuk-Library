@@ -23,19 +23,18 @@ local main = MadbukLibrary:Init({
 
 ## NOTIFY THE USER
 ```lua
-Library:Notify({
+main:NotificationCreate({
 	name = "Success",
-	description = "This script was a success :)",
-	icon = "rbxassetid://13965544901",
+	description = "Successfully ran script",
 	button = {
 		enabled = true,
+		icon = "rbxassetid://13965544901",
 		content = "Okay!",
 		callback = function()
-			print("Okay!")
+			print("Okay")
 		end,
 	}
 })
-
 ```
 ## CREATE A TAB
 ```lua
