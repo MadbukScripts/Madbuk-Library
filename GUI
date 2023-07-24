@@ -1156,7 +1156,7 @@ function Library:Init(Settings)
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
 
-				ToggleSettings.callback()
+				ToggleSettings.callback(Toggle.State)
                  
 			end
 
