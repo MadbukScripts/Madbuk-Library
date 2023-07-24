@@ -14,18 +14,19 @@ local main = MadbukLibrary:Init({
 	}
 })
 
-Library:Notify({
+main:NotificationCreate({
 	name = "Success",
-	description = "Successfully executed the script!",
-	icon = "rbxassetid://13965544901",
+	description = "Successfully ran script",
 	button = {
 		enabled = true,
+		icon = "rbxassetid://13965544901",
 		content = "Okay!",
 		callback = function()
-			print("Okay!")
+			print("Okay")
 		end,
 	}
 })
+
 
 local tab = main:CreateTab({
 	name = "example",
