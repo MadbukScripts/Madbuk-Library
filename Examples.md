@@ -8,7 +8,7 @@ local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com
 
 ## NOTIFY THE USER
 ```lua
-Library:Notify({
+MadbukLibrary:Notify({
 	name = "Success",
 	description = "This script was a success :)",
 	icon = "rbxassetid://13965544901",
