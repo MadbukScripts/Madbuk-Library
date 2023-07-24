@@ -6,22 +6,6 @@
 local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI"))()
 ```
 
-## NOTIFY THE USER
-```lua
-MadbukLibrary:Notify({
-	name = "Success",
-	description = "This script was a success :)",
-	icon = "rbxassetid://13965544901",
-	button = {
-		enabled = true,
-		content = "Okay!",
-		callback = function()
-			print("Okay!")
-		end,
-	}
-})
-```
-
 ## INTRO TAB
 ```lua
 local main = MadbukLibrary:Init({
@@ -35,6 +19,23 @@ local main = MadbukLibrary:Init({
 		start = "rbxassetid://4835664238"
 	}
 })
+```
+
+## NOTIFY THE USER
+```lua
+Library:Notify({
+	name = "Success",
+	description = "This script was a success :)",
+	icon = "rbxassetid://13965544901",
+	button = {
+		enabled = true,
+		content = "Okay!",
+		callback = function()
+			print("Okay!")
+		end,
+	}
+})
+
 ```
 ## CREATE A TAB
 ```lua
