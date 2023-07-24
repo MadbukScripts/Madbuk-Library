@@ -14,7 +14,7 @@ local main = MadbukLibrary:Init({
 	}
 })
 
-main:Notify({
+Library:Notify({
 	name = "Success",
 	description = "Successfully executed the script!",
 	icon = "rbxassetid://13965544901",
