@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V2.7]") 
+warn("Madbuk Library - [V2.75]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -80,25 +80,25 @@ function Library:tween(object,num,goal)
 end
 
 
-Window["Notif"] = Instance.new("Frame", GUI);
-	Window["Notif"]["BorderSizePixel"] = 0;
-	Window["Notif"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-	Window["Notif"]["AnchorPoint"] = Vector2.new(1, 0);
-	Window["Notif"]["BackgroundTransparency"] = 1;
-	Window["Notif"]["Size"] = UDim2.new(0, 300, 0, viewport.Y);
-	Window["Notif"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-	Window["Notif"]["Position"] = UDim2.new(1, 0, 0, 0);
-	Window["Notif"]["Name"] = [[NotificationFrame]];
+NotificationMain = Instance.new("Frame", GUI);
+	NotificationMain["BorderSizePixel"] = 0;
+	NotificationMain["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	NotificationMain["AnchorPoint"] = Vector2.new(1, 0);
+	NotificationMain["BackgroundTransparency"] = 1;
+	NotificationMain["Size"] = UDim2.new(0, 300, 0, viewport.Y);
+	NotificationMain["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	NotificationMain["Position"] = UDim2.new(1, 0, 0, 0);
+	NotificationMain["Name"] = [[NotificationFrame]];
 
 	-- StarterGui.ScreenGui.NotificationFrame.UIPadding
-	Window["16123"] = Instance.new("UIPadding", Window["Notif"]);
-	Window["16123"]["PaddingRight"] = UDim.new(0, 25);
-	Window["16123"]["PaddingBottom"] = UDim.new(0, 25);
+	NotificationPadding = Instance.new("UIPadding", NotificationMain);
+	NotificationPadding["PaddingRight"] = UDim.new(0, 25);
+	NotificationPadding["PaddingBottom"] = UDim.new(0, 25);
 
 	-- StarterGui.ScreenGui.NotificationFrame.UIPadding
-	Window["17123"] = Instance.new("UIListLayout", Window["Notif"]);
-	Window["17123"]["Padding"] = UDim.new(0, 5);
-	Window["17123"]["VerticalAlignment"] = "Bottom"
+	NotificationList = Instance.new("UIListLayout", NotificationMain);
+	NotificationList["Padding"] = UDim.new(0, 5);
+	NotificationList["VerticalAlignment"] = "Bottom"
 
 	function Library:CreateNotification(options)
 		local Notification = {
@@ -106,10 +106,10 @@ Window["Notif"] = Instance.new("Frame", GUI);
 		}
 	
 
-		local Notifications = Window["Notif"]:GetChildren()
+		local Notifications = NotificationMain:GetChildren()
 
 		-- StarterGui.ScreenGui.NotificationFrame.Main
-		Notification["3"] = Instance.new("Frame", Window["Notif"]);
+		Notification["3"] = Instance.new("Frame", NotificationMain);
 		Notification["3"]["BorderSizePixel"] = 0;
 		Notification["3"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
 		Notification["3"]["AnchorPoint"] = Vector2.new(0,1);
