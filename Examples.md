@@ -27,10 +27,11 @@ local main = MadbukLibrary:Init({
 main:NotificationCreate({
 	name = "Success",
 	description = "Successfully ran script",
+	duration = 10,
+	icon = "rbxassetid://13965544901",
 	button = {
 		enabled = true,
 		content = "Okay!",
-		icon = "rbxassetid://13965544901",
 		callback = function()
 			print("Okay")
 		end,
