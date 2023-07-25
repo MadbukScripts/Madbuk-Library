@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V4.1]") 
+warn("Madbuk Library - [V4.2]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1332,8 +1332,8 @@ function Library:Init(Settings)
 			end)
 
 			Button["24"].MouseButton1Click:Connect(function()
-				options.callback()
 				Window["31az"]:Play()
+				options.callback()
 			end)
 
 			return Button
