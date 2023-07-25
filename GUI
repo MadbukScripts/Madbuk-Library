@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V3.8]") 
+warn("Madbuk Library - [V4]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -998,7 +998,7 @@ function Library:Init(Settings)
 		-- StarterGui.ScreenGui.NotifyFrame.Main.Title.UICorner
 		Notify["e"] = Instance.new("UICorner", Notify["9"]);
 
-
+		Window["61az"]:Play()
 		if Notify.buttonEnabled then
 			-- StarterGui.ScreenGui.NotifyFrame.Main.Container
 			Notify["f"] = Instance.new("Frame", Notify["3"]);
@@ -1052,7 +1052,6 @@ function Library:Init(Settings)
 			Notify["11"]["Name"] = [[Indicator]];
 			Notify["11"]["BackgroundTransparency"] = 1;
 			Notify["11"]["Position"] = UDim2.new(1, -10, 0.5, 0);
-
 			-- StarterGui.ScreenGui.NotifyFrame.Main.Container.Button.UIPadding
 			Notify["12"] = Instance.new("UIPadding", Notify["10"]);
 			Notify["12"]["PaddingLeft"] = UDim.new(0, 10);
@@ -1063,6 +1062,7 @@ function Library:Init(Settings)
 			Notify["10"].MouseEnter:Connect(function()
 				Library:tween(Notify["10"], 0.2, {BackgroundColor3 = Color3.fromRGB(90,90,90)})
 				Library:tween(Notify["10"], 0.2, {TextColor3 = Color3.fromRGB(160,160,160)})
+				Window["21az"]:Play()
 			end)
 
 			Notify["10"].MouseLeave:Connect(function()
@@ -1071,6 +1071,7 @@ function Library:Init(Settings)
 			end)
 
 			Notify["10"].MouseButton1Click:Connect(function()
+				Window["31az"]:Play()
 				tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.550000001192092896}):Play()
 				tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55}):Play()
 				tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.55000000059604645}):Play()
@@ -1091,7 +1092,7 @@ function Library:Init(Settings)
 				tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
 				tweenService:Create(Notify["11"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
 				tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
-
+				Window["61az"]:Play()
 				wait(0.75)
 				Notify["3"]:Destroy()	
 
@@ -1117,10 +1118,8 @@ function Library:Init(Settings)
 		tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
 		tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0.55}):Play()
 
-		Window["61az"]:Play()
 		wait(1.3)
 		if Notify.buttonEnabled then
-			Window["61az"]:Play()
 			tweenService:Create(Notify["f"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
 			tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 0.4000000059604645}):Play()
 			tweenService:Create(Notify["10"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
@@ -1137,8 +1136,8 @@ function Library:Init(Settings)
 			tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 1}):Play()
 			tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
-			wait(0.9)
 			Window["61az"]:Play()
+			wait(0.9)
 			Notify["3"]:Destroy()
 		end
 
