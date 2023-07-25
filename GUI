@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V3.6]") 
+warn("Madbuk Library - [V3.65]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -889,7 +889,7 @@ function Library:Init(Settings)
 			duration = options.duration
 		}
 
-
+		print(Notify.icon)
 
 
 
