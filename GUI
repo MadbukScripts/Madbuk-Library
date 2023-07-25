@@ -886,7 +886,6 @@ function Library:Init(Settings)
 			callback = options.button.callback,
 			content = options.button.content,
 			icon = options.button.icon,
-			duration = options.duration
 		}
 
 
@@ -1131,7 +1130,7 @@ function Library:Init(Settings)
 		tweenService:Create(Notify["a"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {ImageTransparency = 0}):Play()
 		tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 		if Notify.buttonEnabled == false then
-			wait(Notify.duration + 0.8)
+			wait(options.duration + 0.8)
 			Library:tween(Notify["3"], 0.7, {Size = UDim2.new(0,0,0,120)})
 			tweenService:Create(Notify["3"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
 			tweenService:Create(Notify["6"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
