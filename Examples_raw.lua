@@ -82,6 +82,8 @@ local dropdown = tab:CreateDropdown({
 dropdown:Add("1a")
 dropdown:Add("2a")
 
+dropdown:SetName("hi")
+
 
 local textbox = tab:CreateTextbox({
 	name = "Textbox",
@@ -89,4 +91,8 @@ local textbox = tab:CreateTextbox({
 		print(txt)
 	end,
 })
+
+wait(0.1)
+
+dropdown:Toggle()
 
