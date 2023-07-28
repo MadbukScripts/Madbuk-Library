@@ -1,12 +1,12 @@
 ## Madbuk Library 
--- THESE ARE EXAMPLES --
+## -- THESE ARE EXAMPLES --
 
 ## STARTING THE LIBRARY
 ```lua
 local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI"))()
 ```
 
-## INTRO TAB
+## MAKING THE WINDOW
 ```lua
 local main = MadbukLibrary:Init({
 	name = "example",
@@ -54,6 +54,11 @@ local button = tab:CreateButton({
 		print("test")
 	end,
 })
+```
+
+## SET A BUTTON
+```lua
+button:Set("hi")
 ```
 
 ## CREATE A LABEL
