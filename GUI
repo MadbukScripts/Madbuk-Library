@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V4.8]") 
+warn("Madbuk Library - [V5]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -2081,19 +2081,6 @@ function Library:Init(Settings)
 			return Textbox
 		end
 		return Tab
-	Window:NotificationCreate({
-	name = "Ran the script!",
-	description = "Join our discord (Link copied)!",
-	duration = 2.3,
-	button = {
-		enabled = false,
-		content = "Okay!",
-		icon = "rbxassetid://13965544901",
-		callback = function()
-			setclipboard("https://discord.gg/4jBY4RDa5y")
-		end,
-	}
-	})
 	end
 	return Window
 end
