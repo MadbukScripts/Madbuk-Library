@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5]") 
+warn("Madbuk Library - [V5.1]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1558,7 +1558,7 @@ function Library:Init(Settings)
 			Slider["2f"]["BorderSizePixel"] = 0;
 			Slider["2f"]["AutoButtonColor"] = false;
 			Slider["2f"]["ImageTransparency"] = 1;
-			Slider["2f"]["BackgroundColor3"] = Color3.fromRGB(25,25,25);
+			Slider["2f"]["BackgroundColor3"] = Color3.fromRGB(28,28,28);
 			Slider["2f"]["Size"] = UDim2.new(0, 370, 0, 60);
 			Slider["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Slider["2f"]["Name"] = [[Slider]];
