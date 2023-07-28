@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V4.3]") 
+warn("Madbuk Library - [V4.4]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -897,7 +897,7 @@ function Library:Init(Settings)
 		Notify["3"]["Size"] = UDim2.new(0, 0, 0, 120);
 		Notify["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Notify["3"]["Name"] = [[Main]];
-		
+
 
 		-- StarterGui.ScreenGui.NotifyFrame.Main.UICorner
 		Notify["4"] = Instance.new("UICorner", Notify["3"]);
@@ -1327,6 +1327,10 @@ function Library:Init(Settings)
 				Window["31az"]:Play()
 				options.callback()
 			end)
+			
+			function Button:Set(text)
+				Button["24"]["Text"] = text
+			end
 
 			return Button
 		end
