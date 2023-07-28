@@ -53,15 +53,12 @@ local toggle = tab:CreateToggle({
 	name = "test",
 	callback = function(value)
 		local val = value
-		if val then
-			print("true")
-		else
-			print("false")
-		end
+		print(val)
 	end,
 })
 
 toggle:Set(true)
+toggle:SetName("Hi")
 
 local slider = tab:CreateSlider({
 	name = "example",
