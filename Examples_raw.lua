@@ -41,6 +41,8 @@ local button = tab:CreateButton({
 	end,
 })
 
+button:Set("hi")
+
 local label = tab:CreateLabel({
 	text = "example"
 })
@@ -83,8 +85,6 @@ local dropdown = tab:CreateDropdown({
 dropdown:Add("1a")
 dropdown:Add("2a")
 
-dropdown:Remove("1a")
-dropdown:Remove("2a")
 
 local textbox = tab:CreateTextbox({
 	name = "Textbox",
