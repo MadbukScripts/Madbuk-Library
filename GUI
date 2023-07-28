@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V4.4]") 
+warn("Madbuk Library - [V4.7]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -583,7 +583,19 @@ function Library:Init(Settings)
 		Window["e"]["Visible"] = true;
 		Window["e"]["Name"] = [[Navigation]];
 		Window["e"]["ClipsDescendants"] = true
-
+		
+		Window["toggle"] = Instance.new("ImageButton", Window["4"]);
+		Window["toggle"]["AutoButtonColor"] = false;
+		Window["toggle"]["Visible"] = false;
+		Window["toggle"]["BackgroundTransparency"] = 1;
+		Window["toggle"]["ImageTransparency"] = 1;
+		Window["toggle"]["Size"] = UDim2.new(0,257,0,459);
+		Window["toggle"]["Position"] = UDim2.new(0,141,0,41);
+		Window["toggle"]["ZIndex"] = 999;
+		Window["toggle"]["Name"] = [[TabToggle]];
+		Window["toggle"]["BackgroundColor3"] = Color3.fromRGB(63,63,63);
+		
+		
 		Window["d"].MouseEnter:Connect(function()
 			Window.Hover = true
 			Window["21az"]:Play()
@@ -660,11 +672,22 @@ function Library:Init(Settings)
 				Library:tween(Window["1e"], 1.5, {Size = UDim2.new(0,1,0,460)})
 				local uiTween = tweenService:Create(Window["e"], TweenInfo.new(0.3,Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Position = UDim2.new(0.35,0,0.92,40), Size = UDim2.new(0,140,0,460)})
 				uiTween:Play()
+				wait(0.2)
+				Window["toggle"].Visible = true
 			else
 				Library:tween(Window["1e"], 0.1, {Size = UDim2.new(0,1,0,0)})
 				local uiTween2 = tweenService:Create(Window["e"], TweenInfo.new(0.3,Enum.EasingStyle.Sine, Enum.EasingDirection.In), {Position = UDim2.new(0,0,0.92,40), Size = UDim2.new(0,0,0,460)})
 				uiTween2:Play()
+				Window["toggle"].Visible = false
 			end
+		end)
+		
+		Window["toggle"].MouseButton1Click:Connect(function()
+			Library:tween(Window["1e"], 0.1, {Size = UDim2.new(0,1,0,0)})
+			local uiTween2 = tweenService:Create(Window["e"], TweenInfo.new(0.3,Enum.EasingStyle.Sine, Enum.EasingDirection.In), {Position = UDim2.new(0,0,0.92,40), Size = UDim2.new(0,0,0,460)})
+			uiTween2:Play()
+			Window["e"].Active = false
+			Window["toggle"].Visible = false
 		end)
 
 		-- StarterWindow.MadbukLibrary.Main.Container.TabHolder
@@ -1161,8 +1184,6 @@ function Library:Init(Settings)
 		Tab["14"]["Name"] = options.name;
 		Tab["14"]["AutoButtonColor"] = false;
 
-
-
 		-- StarterTab.MadbukLibrary.Main.Container.Navigation.ButtonHolder.Tab1.Logo
 		Tab["16"] = Instance.new("ImageLabel", Tab["14"]);
 		Tab["16"]["ZIndex"] = 3;
@@ -1229,7 +1250,13 @@ function Library:Init(Settings)
 
 				Library:tween(Tab["14"], 0.2, {BackgroundColor3 = Color3.fromRGB(100,100,100)})
 				Library:tween(Tab["14"], 0.2, {BackgroundTransparency = 0})
-
+				
+				Library:tween(Window["1e"], 0.1, {Size = UDim2.new(0,1,0,0)})
+				local uiTween2 = tweenService:Create(Window["e"], TweenInfo.new(0.3,Enum.EasingStyle.Sine, Enum.EasingDirection.In), {Position = UDim2.new(0,0,0.92,40), Size = UDim2.new(0,0,0,460)})
+				uiTween2:Play()
+				Window["e"].Active = false
+				Window["toggle"].Visible = false
+				
 				Tab["22"].Visible = true
 				Library:tween(Tab["22"], 0.8, {Size = UDim2.new(0, 374, 0, 440)})
 				Window.CurrentTab = Tab
@@ -1483,6 +1510,7 @@ function Library:Init(Settings)
 				Toggle.State = state
 				Toggle:toggle()
 			end
+			
 
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Button.UICorner
 			Toggle["5d"] = Instance.new("UICorner", Toggle["5c"]);
@@ -1502,6 +1530,10 @@ function Library:Init(Settings)
 			Toggle["5f"]["Text"] = ToggleSettings.name;
 			Toggle["5f"]["Name"] = [[Text]];
 			Toggle["5f"]["BackgroundTransparency"] = 1;
+			
+			function Toggle:SetName(name)
+				Toggle["5f"].Text = name
+			end
 
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Text.UIPadding
 			Toggle["60"] = Instance.new("UIPadding", Toggle["5f"]);
@@ -1525,7 +1557,7 @@ function Library:Init(Settings)
 			Slider["2f"]["BorderSizePixel"] = 0;
 			Slider["2f"]["AutoButtonColor"] = false;
 			Slider["2f"]["ImageTransparency"] = 1;
-			Slider["2f"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+			Slider["2f"]["BackgroundColor3"] = Color3.fromRGB(25,25,25);
 			Slider["2f"]["Size"] = UDim2.new(0, 370, 0, 60);
 			Slider["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Slider["2f"]["Name"] = [[Slider]];
@@ -1596,7 +1628,7 @@ function Library:Init(Settings)
 			Slider["38"]["ImageTransparency"] = 1;
 			Slider["38"]["AutoButtonColor"] = false;
 			Slider["38"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-			Slider["38"]["Size"] = UDim2.new(0, 1, 0, 7);
+			Slider["38"]["Size"] = UDim2.new(0, 0, 0, 7);
 			Slider["38"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Slider["38"]["Name"] = [[Draggable]];
 
@@ -1640,9 +1672,13 @@ function Library:Init(Settings)
 				Slider["2f"].MouseLeave:Connect(function()
 					Slider.Hover = false
 
-					Library:tween(Slider["36"], 0.2, {BackgroundColor3 = Color3.fromRGB(27,27,27)})
+					Library:tween(Slider["36"], 0.2, {BackgroundColor3 = Color3.fromRGB(25,25,25)})
 					Library:tween(Slider["38"], 0.2, {BackgroundColor3 = Color3.fromRGB(255,255,255)})
 					Library:tween(Slider["2f"], 0.2, {BackgroundColor3 = Color3.fromRGB(28,28,28)})
+					Slider.MouseDown = false
+
+					if Slider.Connection then Slider.Connection:Disconnect() end
+					Slider.Connection = nil
 				end)
 
 				Slider["2f"].MouseButton1Down:Connect(function()
@@ -1711,7 +1747,9 @@ function Library:Init(Settings)
 		function Tab:CreateDropdown(options)
 			local Dropdown = {
 				Items = {
-					["id"] = {}
+					["id"] = {
+						Active = false
+					}
 				},
 				Active = false
 			}
@@ -1810,7 +1848,10 @@ function Library:Init(Settings)
 				end
 
 				Dropdown.Items[id] ={
-					instance = {}
+					instance = {
+						Active = false,
+						Current = false
+					}
 				}
 				-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.OptionHolder.InactiveOption
 				Dropdown.Items[id].instance["4c"] = Instance.new("ImageButton", Dropdown["3e"]);
@@ -1820,8 +1861,8 @@ function Library:Init(Settings)
 				Dropdown.Items[id].instance["4c"]["BackgroundColor3"] = Color3.fromRGB(37, 37, 37);
 				Dropdown.Items[id].instance["4c"]["Size"] = UDim2.new(0, 360, 0, 25);
 				Dropdown.Items[id].instance["4c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-				Dropdown.Items[id].instance["4c"]["Name"] = [[InactiveOption]];
-
+				Dropdown.Items[id].instance["4c"]["Name"] = id;
+				Dropdown.Items[id].instance["4c"]["Active"] = false;
 
 				-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.OptionHolder.InactiveOption.UICorner
 				Dropdown.Items[id].instance["4e"] = Instance.new("UICorner", Dropdown.Items[id].instance["4c"]);
@@ -1851,14 +1892,32 @@ function Library:Init(Settings)
 				Dropdown.Items[id].instance["50"]["Size"] = UDim2.new(0, 370, 0, 40);
 				Dropdown.Items[id].instance["50"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 				Dropdown.Items[id].instance["50"]["Text"] = id;
-				Dropdown.Items[id].instance["50"]["Name"] = [[Text]];
+				Dropdown.Items[id].instance["50"]["Name"] = id;
 				Dropdown.Items[id].instance["50"]["BackgroundTransparency"] = 1;
 				Dropdown.Items[id].instance["50"]["Position"] = UDim2.new(0, 0, -0.30000001192092896, 0);
 
 				-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.OptionHolder.InactiveOption.Text.UIPadding
 				Dropdown.Items[id].instance["51"] = Instance.new("UIPadding", Dropdown.Items[id].instance["50"]);
 				Dropdown.Items[id].instance["51"]["PaddingLeft"] = UDim.new(0, 10);
+				
 
+				function Dropdown:Activate(id)
+					for i,v in next, Dropdown["3e"]:GetChildren() do
+						if v:IsA("ImageButton") then
+							v.BackgroundColor3 = Color3.fromRGB(37,37,37)
+							v.Active = false
+							print(v.Active)
+						end
+					end
+					
+					if Dropdown["3e"][id].Active == false then
+						Dropdown["3e"][id].Active = true
+						Dropdown["3e"][id]["BackgroundColor3"] = Color3.fromRGB(52,52,52)
+						print(Dropdown["3e"][id].Active)
+					end
+				end
+
+				
 				Dropdown.Items[id].instance["4c"].MouseEnter:Connect(function()
 					Window["21az"]:Play()
 					Library:tween(Dropdown["52"],0.3,{BackgroundColor3 = Color3.fromRGB(32,32,32)})
@@ -1871,7 +1930,7 @@ function Library:Init(Settings)
 
 				Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
 					options.callback(id)
-					Dropdown:Toggle()
+					Dropdown:Activate(id)
 					Window["31az"]:Play()
 				end)
 
@@ -1900,7 +1959,6 @@ function Library:Init(Settings)
 							count += 1
 						end
 					end
-					print(count)
 
 					Dropdown["3e"]["Size"] = UDim2.new(0,360,0,0)
 					Dropdown["3b"]["Size"] = UDim2.new(0,370,0,0)
