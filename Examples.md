@@ -88,9 +88,14 @@ local toggle = tab:CreateToggle({
 })
 ```
 
-## SET A TOGGLE
+## SET A TOGGLE VALUE
 ```lua
 toggle:Set(true)
+```
+
+## SET A TOGGLE NAME
+```lua
+toggle:SetName("hi")
 ```
 
 ## CREATE A SLIDER
