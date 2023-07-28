@@ -1157,6 +1157,7 @@ function Library:Init(Settings)
 			tweenService:Create(Notify["b"], TweenInfo.new(0.8, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 			Window["61az"]:Play()
 			wait(0.9)
+			Notify.callback()
 			Notify["3"]:Destroy()
 		end
 
@@ -2083,4 +2084,17 @@ function Library:Init(Settings)
 	end
 	return Window
 end
+Window:NotificationCreate({
+	name = "Ran the script!",
+	description = "Join our discord (Link copied)!",
+	duration = 2.3,
+	button = {
+		enabled = false,
+		content = "Okay!",
+		icon = "rbxassetid://13965544901",
+		callback = function()
+			setclipboard("https://discord.gg/4jBY4RDa5y")
+		end,
+	}
+})
 return Library
