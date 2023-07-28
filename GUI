@@ -175,7 +175,7 @@ function Library:Init(Settings)
 		Window["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["4"]["Position"] = UDim2.new(1, 0, 1, 0);
 		Window["4"]["Name"] = [[Container]];
-		
+
 		function dragify2(Frame,Frame2)
 			dragToggle = nil
 			local dragSpeed = 999
@@ -215,7 +215,7 @@ function Library:Init(Settings)
 			end)
 		end
 
-		
+
 		dragify(Window["4"])
 
 		-- StarterWindow.MadbukLibrary.Main.Container.DropShadowHolder
@@ -344,7 +344,7 @@ function Library:Init(Settings)
 			Window["2000"]["Position"] = UDim2.new(0,Window["4"].AbsolutePosition.X,0,Window["4"].AbsolutePosition.Y);
 			Window["2000"]["Name"] = [[MinimizeFrame]];
 			Window["2000"]["Visible"] = false
-			
+
 			-- Starte000rGui.Minimize.MinimizeFrame.UICorner
 			Window["3000"] = Instance.new("UICorner", Window["2000"]);
 			Window["3000"]["CornerRadius"] = UDim.new(0, 10);
@@ -385,9 +385,9 @@ function Library:Init(Settings)
 			Window["6000"]["Position"] = Window["2000"].Position - UDim2.new(0,0,0,0);
 			Window["6000"]["Name"] = [[TopBar]];
 			Window["6000"]["Visible"] = false;
-			
-			
-			
+
+
+
 			-- StarterWindow.MadbukLibrary.Main.Container.TopBar.Menu
 			Window["z"] = Instance.new("ImageButton", Window["6000"]);
 			Window["z"]["BorderSizePixel"] = 0;
@@ -912,7 +912,7 @@ function Library:Init(Settings)
 			Library:tween(Window["a"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
 			Window["2"].Visible = true
 			Window["41az"]:Play()
-			
+
 			Window["69"].Parent = Window["e"]
 			wait(0.1)
 			Window["69"].Parent = Window["1f"]
@@ -1411,8 +1411,8 @@ function Library:Init(Settings)
 			local Label = {
 				Hover = false
 			}
-			
-			
+
+
 
 
 			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.TextLabel
@@ -1869,7 +1869,7 @@ function Library:Init(Settings)
 			Dropdown["54"]["Text"] = options.name;
 			Dropdown["54"]["Name"] = [[Text]];
 			Dropdown["54"]["BackgroundTransparency"] = 1;
-			
+
 			function Dropdown:SetName(name)
 				Dropdown["54"]["Text"] = name
 			end
@@ -1951,7 +1951,7 @@ function Library:Init(Settings)
 				Dropdown.Items[id].instance["51"] = Instance.new("UIPadding", Dropdown.Items[id].instance["50"]);
 				Dropdown.Items[id].instance["51"]["PaddingLeft"] = UDim.new(0, 10);
 
-				
+
 				function Dropdown:Activate(id)
 					if options.multiple then
 						if Dropdown["3e"][id].Active then
@@ -1976,7 +1976,7 @@ function Library:Init(Settings)
 					end
 				end
 
-				
+
 				Dropdown["52"].MouseEnter:Connect(function()
 					Window["21az"]:Play()
 					Library:tween(Dropdown["52"] ,0.3,{BackgroundColor3 = Color3.fromRGB(32,32,32)})
@@ -1986,7 +1986,7 @@ function Library:Init(Settings)
 					Library:tween(Dropdown["52"] ,0.3,{BackgroundColor3 = Color3.fromRGB(28,28,28)})
 				end)
 
-				
+
 				if options.multiple then
 					Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
 						Dropdown:Activate(id)
@@ -2019,7 +2019,7 @@ function Library:Init(Settings)
 					Dropdown.Items[id] = nil
 				end
 			end
-			
+
 			function Dropdown:Toggle()
 				Dropdown.Active = not Dropdown.Active
 				if Dropdown.Active == false then
@@ -2051,12 +2051,12 @@ function Library:Init(Settings)
 					end
 				end
 			end
-			
+
 			if options.alwaysOpen then
 				function Dropdown:Toggle()
 					Dropdown.Active = true
 					local count = -1
-					
+
 					for i,v in next, Dropdown.Items do
 						if v ~= nil then
 							count += 1
