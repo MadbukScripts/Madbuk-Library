@@ -120,11 +120,26 @@ slider:SetValue(100)
  ```lua
 local dropdown = tab:CreateDropdown({
 	name = "Dropdown",
+	alwaysOpen = false,
+	multiple = false,
 	callback = function(v)
 		print(v.." Was clicked")
 	end,	
 })
 ```
+
+## SET DROPDOWN NAME
+```lua
+dropdown:SetName("hi")
+```
+
+## TOGGLE DROPDOWN
+```lua
+--disclaimer: if you want to use this you have to put it at the end of your code otherwise it will bug out
+wait(0.1)
+dropdown:Toggle()
+```
+
 ## ADD NEW DROPDOWN BUTTON
 ```lua
 dropdown:Add("1a")
