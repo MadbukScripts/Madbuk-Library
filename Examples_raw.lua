@@ -34,6 +34,10 @@ local tab = main:CreateTab({
 	icon = "rbxassetid://13965544901"
 })
 
+local section = tab:CreateSection({
+	name = "example"
+)}
+
 local button = tab:CreateButton({
 	name = "example",
 	callback = function()
