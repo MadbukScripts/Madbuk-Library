@@ -36,7 +36,7 @@ local tab = main:CreateTab({
 
 local section = tab:CreateSection({
 	name = "example"
-)}
+})
 
 local button = tab:CreateButton({
 	name = "example",
