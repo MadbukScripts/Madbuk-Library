@@ -116,7 +116,7 @@ local slider = tab:CreateSlider({
 slider:SetValue(100)
 ```
 
-## ADD NEW DROPDOWN BUTTON
+## CREATE A DROPDOWN
  ```lua
 local dropdown = tab:CreateDropdown({
 	name = "Dropdown",
