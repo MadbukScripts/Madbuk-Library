@@ -46,6 +46,13 @@ local tab = main:CreateTab({
 })
 ```
 
+## CREATE A SECTION
+```lua
+local section = tab:CreateSection({
+	name = "example"
+})
+```
+
 ## CREATE A BUTTON
 ```lua
 local button = tab:CreateButton({
