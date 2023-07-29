@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5.5]") 
+warn("Madbuk Library - [V5.7]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1335,6 +1335,29 @@ function Library:Init(Settings)
 		if Window.CurrentTab == nil then
 			Tab:Activate()
 		end
+		
+		function Tab:CreateSection(options)
+			local Section = {}
+			
+			Section["1"] = Instance.new("TextLabel", Tab["22"]);
+			Section["1"]["BackgroundTransparency"] = 1;
+			Section["1"]["TextColor3"] = Color3.fromRGB(158,158,158);
+			Section["1"]["TextSize"] = 14
+			Section["1"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			Section["1"]["Size"] = UDim2.new(0,370,0,20);
+			Section["1"]["Visible"] = true;
+			Section["1"]["BorderSizePixel"] = 0;
+			Section["1"]["TextYAlignment"] = "Top";
+			Section["1"]["TextXAlignment"] = "Left";
+			Section["1"]["Text"] = options.name;
+			
+			Section["2"] = Instance.new("UIPadding", Section["1"]);
+			Section["2"]["PaddingLeft"] = UDim.new(0,2);
+			Section["2"]["PaddingTop"] = UDim.new(0,2);
+			
+			
+			return Section
+		end
 
 		function Tab:CreateButton(options)
 			local Button = {
@@ -1406,7 +1429,7 @@ function Library:Init(Settings)
 
 			return Button
 		end
-
+		
 		function Tab:CreateLabel(options)
 			local Label = {
 				Hover = false
