@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5.8]") 
+warn("Madbuk Library - [V5.9]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1335,10 +1335,10 @@ function Library:Init(Settings)
 		if Window.CurrentTab == nil then
 			Tab:Activate()
 		end
-		
+
 		function Tab:CreateSection(options)
 			local Section = {}
-			
+
 			Section["1"] = Instance.new("TextLabel", Tab["22"]);
 			Section["1"]["BackgroundTransparency"] = 1;
 			Section["1"]["TextColor3"] = Color3.fromRGB(158,158,158);
@@ -1350,12 +1350,12 @@ function Library:Init(Settings)
 			Section["1"]["TextYAlignment"] = "Top";
 			Section["1"]["TextXAlignment"] = "Left";
 			Section["1"]["Text"] = options.name;
-			
+
 			Section["2"] = Instance.new("UIPadding", Section["1"]);
 			Section["2"]["PaddingLeft"] = UDim.new(0,2);
 			Section["2"]["PaddingTop"] = UDim.new(0,2);
-			
-			
+
+
 			return Section
 		end
 
@@ -1429,7 +1429,7 @@ function Library:Init(Settings)
 
 			return Button
 		end
-		
+
 		function Tab:CreateLabel(options)
 			local Label = {
 				Hover = false
@@ -2017,7 +2017,8 @@ function Library:Init(Settings)
 						for i,v in next, Dropdown["3e"]:GetChildren() do
 							if v:IsA("ImageButton") then
 								if v.Active then
-									options.callback(v)
+									local state = v.Active
+									options.callback(v, state)
 								end
 							end
 						end
