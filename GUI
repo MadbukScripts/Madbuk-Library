@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6]") 
+warn("Madbuk Library - [V6.1 (try minimize and move it)]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -188,7 +188,7 @@ function Library:Init(Settings)
 				local Position2 = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
 				game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.30), {Position = Position}):Play()
 				game:GetService("TweenService"):Create(Frame2, TweenInfo.new(0.30), {Position = Position + UDim2.new(0,0,0,20)}):Play()
-				game:GetService("TweenService"):Create(Window["4"], TweenInfo.new(0.30), {Position = Position2 - UDim2.new(0,390,0,-195)}):Play()
+				game:GetService("TweenService"):Create(Window["4"], TweenInfo.new(0.30), {Position = Position2 - UDim2.new(0,viewport.X/4.0512820512820512820512820512821,0,viewport.Y/-3.348717949)}):Play()
 			end
 			Frame.InputBegan:Connect(function(input)
 				if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
@@ -744,21 +744,6 @@ function Library:Init(Settings)
 		Window["1f"]["Position"] = UDim2.new(0.9750000238418579, 5, 0.8999999761581421, 45);
 		Window["1f"]["Name"] = [[TabHolder]];
 
-		-- StarterGUI.Window.MadbukLibrary.Main.Container.WindowHolder.Fade
-		Window["69"] = Instance.new("Frame", Window["1f"]);
-		Window["69"]["BorderSizePixel"] = 0;
-		Window["69"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-		Window["69"]["AnchorPoint"] = Vector2.new(1, 1);
-		Window["69"]["Size"] = UDim2.new(0, 400, 0, -35);
-		Window["69"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-		Window["69"]["Position"] = UDim2.new(1, 5, 0, -5);
-		Window["69"]["Name"] = [[Fade]];
-
-		-- StarterWindow.MadbukLibrary.Main.Container.WindowHolder.Fade.UIGradient
-		Window["6a"] = Instance.new("UIGradient", Window["69"]);
-		Window["6a"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0, 0),NumberSequenceKeypoint.new(0.55, 0.15),NumberSequenceKeypoint.new(1, 1)};
-		Window["6a"]["Rotation"] = 90;
-		Window["6a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(54,54,54)),ColorSequenceKeypoint.new(1, Color3.fromRGB(36,36,36))};
 
 
 		-- StarterWindow.MadbukLibrary.Main.Container.WindowHolder.UICorner
