@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5.9]") 
+warn("Madbuk Library - [V6]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -2016,10 +2016,8 @@ function Library:Init(Settings)
 						Window["31az"]:Play()
 						for i,v in next, Dropdown["3e"]:GetChildren() do
 							if v:IsA("ImageButton") then
-								if v.Active then
-									local state = v.Active
-									options.callback(v, state)
-								end
+								local state = v.Active
+								options.callback(v, state)
 							end
 						end
 					end)
