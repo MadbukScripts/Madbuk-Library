@@ -2017,7 +2017,7 @@ function Library:Init(Settings)
 						for i,v in next, Dropdown["3e"]:GetChildren() do
 							if v:IsA("ImageButton") then
 								if v.Active then
-									options.callback(v, v.Active)
+									options.callback(v)
 								end
 							end
 						end
