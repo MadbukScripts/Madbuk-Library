@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.1 (try minimize and move it)]") 
+warn("Madbuk Library - [V6.2]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1999,12 +1999,9 @@ function Library:Init(Settings)
 					Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
 						Dropdown:Activate(id)
 						Window["31az"]:Play()
-						for i,v in next, Dropdown["3e"]:GetChildren() do
-							if v:IsA("ImageButton") then
-								local state = v.Active
-								options.callback(v, state)
-							end
-						end
+						local state = Dropdown["3e"][id].Active
+						local value = Dropdown["3e"][id]
+						options.callback(value, state)
 					end)
 				else
 					Dropdown.Items[id].instance["4c"].MouseButton1Click:Connect(function()
