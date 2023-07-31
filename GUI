@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5.9]") 
+warn("Madbuk Library - [V5.8]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1831,11 +1831,11 @@ function Library:Init(Settings)
 			["3b"]["Size"] = UDim2.new(0, 370, 0, 30);
 			["3b"]["ClipsDescendants"] = false;
 			["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Dropdown["3b"]["Position"] = UDim2.new(0.008021390065550804, 0, 0.48636364936828613, 0);
-			Dropdown["3b"]["Name"] = [[Dropdown]];
+			["3b"]["Position"] = UDim2.new(0.008021390065550804, 0, 0.48636364936828613, 0);
+			["3b"]["Name"] = [[]];
 
 
-			-- StarterDropdown.MadbukLibrary.Main.Container.DropdownHolder.ContentContainer.Dropdown.UICorner
+			-- Starter.MadbukLibrary.Main.Container.Holder.ContentContainer..UICorner
 			Dropdown["3d"] = Instance.new("UICorner", Dropdown["3b"]);
 
 
@@ -2017,7 +2017,7 @@ function Library:Init(Settings)
 						for i,v in next, Dropdown["3e"]:GetChildren() do
 							if v:IsA("ImageButton") then
 								if v.Active then
-									options.callback(v, Dropdown["3e"][id].Active)
+									options.callback(v, v.Active)
 								end
 							end
 						end
