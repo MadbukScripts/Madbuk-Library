@@ -80,8 +80,8 @@ local dropdown = tab:CreateDropdown({
 	name = "Dropdown",
 	alwaysOpen = false,
 	multiple = true,
-	callback = function(v, state)
-		print(v, state)
+	callback = function(value, state)
+		print(value, state)
 	end,	
 })
 
