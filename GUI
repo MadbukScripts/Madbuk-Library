@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V5.8]") 
+warn("Madbuk Library - [V5.9]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -1814,8 +1814,8 @@ function Library:Init(Settings)
 			return Slider
 		end
 
-		function Tab:CreateDropdown(options)
-			local Dropdown = {
+		function Tab:Create(options)
+			local  = {
 				Items = {
 					["id"] = {
 						Active = false
@@ -1824,13 +1824,13 @@ function Library:Init(Settings)
 				Active = false
 			}
 
-			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.Dropdown
-			Dropdown["3b"] = Instance.new("Frame", Tab["22"]);
-			Dropdown["3b"]["BorderSizePixel"] = 0;
-			Dropdown["3b"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
-			Dropdown["3b"]["Size"] = UDim2.new(0, 370, 0, 30);
-			Dropdown["3b"]["ClipsDescendants"] = false;
-			Dropdown["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.
+			["3b"] = Instance.new("Frame", Tab["22"]);
+			["3b"]["BorderSizePixel"] = 0;
+			["3b"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
+			["3b"]["Size"] = UDim2.new(0, 370, 0, 30);
+			["3b"]["ClipsDescendants"] = false;
+			["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Dropdown["3b"]["Position"] = UDim2.new(0.008021390065550804, 0, 0.48636364936828613, 0);
 			Dropdown["3b"]["Name"] = [[Dropdown]];
 
@@ -2017,7 +2017,7 @@ function Library:Init(Settings)
 						for i,v in next, Dropdown["3e"]:GetChildren() do
 							if v:IsA("ImageButton") then
 								if v.Active then
-									options.callback(v)
+									options.callback(v, Dropdown["3e"][id].Active)
 								end
 							end
 						end
