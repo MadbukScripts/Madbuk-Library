@@ -1814,7 +1814,7 @@ function Library:Init(Settings)
 			return Slider
 		end
 
-		function Tab:Create(options)
+		function Tab:CreateDropdown(options)
 			local Dropdown = {
 				Items = {
 					["id"] = {
