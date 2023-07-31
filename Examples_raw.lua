@@ -79,9 +79,9 @@ slider:SetValue(100)
 local dropdown = tab:CreateDropdown({
 	name = "Dropdown",
 	alwaysOpen = false,
-	multiple = false,
-	callback = function(v)
-		print(v.." Was clicked")
+	multiple = true,
+	callback = function(v, state)
+		print(v, state)
 	end,	
 })
 
