@@ -1,6 +1,6 @@
 warn("Madbuk Library - [V6.3]") 
 local runService = game:GetService("RunService")
-local coreGui = game:GetService("PlayerGui")
+local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
 local tweenService = game:GetService("TweenService")
 local uis = game:GetService("UserInputService")
