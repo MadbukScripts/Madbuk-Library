@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.4]") 
+warn("Madbuk Library - [V6.5]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -66,7 +66,38 @@ function dragify(Frame)
 end
 
 
-
+function RandomString(a, b)
+    local c;
+    if not b then
+        c = a
+    elseif b then
+        c = math.random(a, b);
+    end;
+    local d;
+    local e = "";
+    local f = task or {wait=function()return true;end};
+    for g = 1, c do
+        d = math.random(49, 122);
+        if d > 57 and d < 65 then
+            local h = 65 - d;
+            d = d + h + math.random(0, 57);
+        end;
+        if d > 90 and d < 97 then
+            local h = 97 - d;
+            d = d + h + math.random(0, 25);
+        end;
+        e = e .. string.char(d);
+    end;
+    local i = "";
+    repeat f.wait();
+        i = i .. string.char(d);
+    until not tonumber(i);
+    e = i .. e;
+    if tonumber(string.sub(e, 1, 1)) and (not tonumber(string.sub(e, (-1), c))) then
+        e = string.reverse(e);
+    end;
+    return tostring(e:sub(1,#e-1));
+end;
 
 function Library:tween(object,num,goal)
 	local tween = tweenService:Create(object,TweenInfo.new(num),goal)
@@ -145,7 +176,7 @@ function Library:Init(Settings)
 	do
 		-- StarterWindow.MadbukLibrary
 		Window["1"] = Instance.new("ScreenGui", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui);
-		Window["1"]["Name"] = [[MadbukLibrary]];
+		Window["1"]["Name"] = RandomString(10,15);
 		Window["1"]["IgnoreGuiInset"] = true;
 
 
