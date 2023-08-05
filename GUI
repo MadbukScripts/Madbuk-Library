@@ -112,11 +112,14 @@ function Library:Init(Settings)
 
 	if Settings.multiple == false then
 		for i,v in next, game:GetDescendants() do
-			if v:IsA("ScreenGui") and v.Name == "MadbukLibrary" then
-				v:Destroy()
+			if v:IsA("ScreenGui") then
+				if v:FindFirstChild("IsRunning") then
+                    v:Destroy()
+                else end
 			end
 		end
 	end
+
 
 	if Settings.multiple == false then
 		for i,v in next, game:GetDescendants() do
