@@ -131,6 +131,10 @@ local dropdown = tab:CreateDropdown({
 	multiple = true,
 	callback = function(value, state)
 		print(value, state)
+--[[    value is an instance, so if you want to do
+	if value == 'str' then.. -- wouldnt work
+	you would have to use value.Name instead
+]]--
 	end,	
 })
 ```
