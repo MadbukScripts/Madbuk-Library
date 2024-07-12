@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.5]") 
+warn("Madbuk Library - [V6.6]") 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -12,9 +12,38 @@ local mouse = plr:GetMouse()
 local viewport = workspace.CurrentCamera.ViewportSize
 
 local Library = {
+    States = {},
 	Connections = {}
 }
 
+local folder = "MadbukScripts"
+makefolder(folder)
+local configFolder = folder.."/configs"
+makefolder(configFolder)
+
+local configExtension = ".json"
+local fileName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local fileLocation = configFolder..'/'..fileName..configExtension
+
+function saveConfig()
+    local data = {}
+
+    for i,v in next, Library.States do
+            data[i] = v.State
+    end
+
+    writefile(fileLocation, tostring(HttpService:JSONEncode(data)))
+end
+
+function loadConfig()
+    local config = readfile(fileLocation)
+    local data = HttpService:JSONDecode(config)
+	for toggleName, value in next, data do
+        if Library.States[toggleName] then
+            Library.States[toggleName]:Set(value)
+        end
+	end
+end
 
 local UIS = game:GetService("UserInputService")
 
@@ -108,29 +137,32 @@ end
 
 
 function Library:Init(Settings) 
-
-
 	if Settings.multiple == false then
-		for i,v in next, game:GetDescendants() do
-			if v:IsA("ScreenGui") then
-				if v:FindFirstChild("IsRunning") then
-                    v:Destroy()
-                else end
+		for i,v in next, game.CoreGui:GetDescendants() do
+			if v:IsA('ScreenGui') then
+                local v2 = v:FindFirstChild('Main')
+				if v2 then
+                    local v3 = v2:FindFirstChild('Container')
+                    if v3 then
+                        local v4 = v3:FindFirstChild('DropShadowHolder')
+                        v:Destroy()
+                    end
+                end
 			end
 		end
 	end
 
 
 	if Settings.multiple == false then
-		for i,v in next, game:GetDescendants() do
-			if v:IsA("Folder") and v.Name == "Sounds" then
+		for i,v in next, game.CoreGui:GetDescendants() do
+			if v:IsA("Folder") and v.Name == "SoundsMadbuk" then
 				v:Destroy()
 			end
 		end
 	end
 
 	if Settings.multiple == false then
-		for i,v in next, game:GetDescendants() do
+		for i,v in next, game.CoreGui:GetDescendants() do
 			if v:IsA("ScreenGui") and v.Name == "MadbukLibraryNotify" then
 				v:Destroy()
 			end
@@ -148,7 +180,7 @@ function Library:Init(Settings)
 	--Main
 
 	Window["11az"] = Instance.new("Folder", runService:IsStudio() and players.LocalPlayer:WaitForChild("PlayerGui") or coreGui)
-	Window["11az"].Name = "Sounds"
+	Window["11az"].Name = "SoundsMadbuk"
 
 	Window["21az"] = Instance.new("Sound", Window["11az"])
 	Window["21az"].SoundId = Settings.sounds.hover
@@ -809,13 +841,10 @@ function Library:Init(Settings)
 			Window["200"]["BackgroundTransparency"] = 1
 
 
-
-			-- StarterGui.Window.Main.UICorner
+			-- StarterGui.Window.Main.UICorner 
 			Window["300"] = Instance.new("UICorner", Window["200"]);
 			Window["300"]["CornerRadius"] = UDim.new(0, 10);
 
-
-			-- StarterGui.Window.Main.DropShadowHolder
 			Window["500"] = Instance.new("Frame", Window["200"]);
 			Window["500"]["ZIndex"] = 0;
 			Window["500"]["BorderSizePixel"] = 0;
@@ -825,7 +854,6 @@ function Library:Init(Settings)
 			Window["500"]["Position"] = UDim2.new(1, 0, 1, 0);
 			Window["500"]["Name"] = [[DropShadowHolder]];
 
-			-- Starte00rGui.Window.Main.DropShadowHolder.DropShadow
 			Window["600"] = Instance.new("ImageLabel", Window["500"]);
 			Window["600"]["ZIndex"] = 0;
 			Window["600"]["BorderSizePixel"] = 0;
@@ -834,32 +862,31 @@ function Library:Init(Settings)
 			Window["600"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
 			Window["600"]["ImageTransparency"] = 0.5099999904632568;
 			Window["600"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-			Window["600"]["Image"] = [[rbxassetid://6014261993]];
+            Window["600"]["Image"] = [[rbxassetid://6014261993]];
 			Window["600"]["Size"] = UDim2.new(1, 50, 1, 50);
 			Window["600"]["Name"] = [[DropShadow]];
 			Window["600"]["BackgroundTransparency"] = 1;
 			Window["600"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
-
-			-- Starte00rGui.Window.Main.Name
 			Window["700"] = Instance.new("TextLabel", Window["200"]);
 			Window["700"]["TextWrapped"] = true;
 			Window["700"]["BorderSizePixel"] = 0;
 			Window["700"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 			Window["700"]["TextXAlignment"] = Enum.TextXAlignment.Left;
-			Window["700"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-			Window["700"]["TextSize"] = 12;
+			Window["700"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);	
+            Window["700"]["TextSize"] = 12;
 			Window["700"]["TextColor3"] = Color3.fromRGB(223, 223, 223);
 			Window["700"]["AnchorPoint"] = Vector2.new(0, 0.5);
 			Window["700"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["700"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Window["700"]["Text"] = "Madbuk Scripts";
-			Window["700"]["Name"] = [[Name]];
+            
+			--Window["700"]["Name"] = [[Name]];
+            
 			Window["700"]["TextTransparency"] = 1;
 			Window["700"]["BackgroundTransparency"] = 1;
 			Window["700"]["Position"] = UDim2.new(0, 0, 0.5, 0);
-
-
-
+            
+        
 			-- Starte00rGui.Window.Main.Name.UIPadding
 			Window["800"] = Instance.new("UIPadding", Window["700"]);
 			Window["800"]["PaddingLeft"] = UDim.new(0, 20);
@@ -871,15 +898,15 @@ function Library:Init(Settings)
 			Window["900"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 			Window["900"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 			Window["900"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-			Window["900"]["TextSize"] = 15;
+            Window["900"]["TextSize"] = 15;
 			Window["900"]["TextColor3"] = Color3.fromRGB(222, 222, 222);
 			Window["900"]["AnchorPoint"] = Vector2.new(0, 0.5);
+            Window["900"]["BackgroundTransparency"] = 1;
 			Window["900"]["TextTransparency"] = 1;
 			Window["900"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["900"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 			Window["900"]["Text"] = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
 			Window["900"]["Name"] = [[Game]];
-			Window["900"]["BackgroundTransparency"] = 1;
 			Window["900"]["Position"] = UDim2.new(0, 0, 0.5, -20);
 
 
@@ -970,7 +997,7 @@ function Library:Init(Settings)
 			icon = options.button.icon,
 		}
 
-
+        spawn(function()
 
 
 		-- StarterGui.ScreenGui.NotifyFrame.Main
@@ -1223,6 +1250,7 @@ function Library:Init(Settings)
 			Notify.callback()
 			Notify["3"]:Destroy()
 		end
+        end)
 
 		return Notify
 	end
@@ -1524,7 +1552,7 @@ function Library:Init(Settings)
 			Toggle["59"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28);
 			Toggle["59"]["Size"] = UDim2.new(0, 370, 0, 40);
 			Toggle["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			Toggle["59"]["Name"] = [[ToggleOff]];
+			Toggle["59"]["Name"] = ToggleSettings.name;
 
 			Toggle["59"].MouseEnter:Connect(function()
 				Window["21az"]:Play()
@@ -1558,9 +1586,9 @@ function Library:Init(Settings)
 				else
 					Library:tween(Toggle["5c"], 0.3, {BackgroundColor3 = Color3.fromRGB(54,54,54)})
 				end
-
+                Library.States[ToggleSettings.name] = Toggle
+                saveConfig()
 				ToggleSettings.callback(Toggle.State)
-
 			end
 
 			Toggle["5c"].MouseEnter:Connect(function()
@@ -1627,7 +1655,7 @@ function Library:Init(Settings)
 			-- StarterToggle.MadbukLibrary.Main.Container.ToggleHolder.ContentContainer.ToggleOff.Text.UIPadding
 			Toggle["60"] = Instance.new("UIPadding", Toggle["5f"]);
 			Toggle["60"]["PaddingLeft"] = UDim.new(0, 10);
-
+            Library.States[ToggleSettings.name] = Toggle
 			return Toggle
 		end
 
@@ -1940,7 +1968,7 @@ function Library:Init(Settings)
 					return
 				end
 
-				Dropdown.Items[id] ={
+				Dropdown.Items[id] = {
 					instance = {
 						Active = false,
 						Current = false
@@ -1995,6 +2023,7 @@ function Library:Init(Settings)
 
 
 				function Dropdown:Activate(id)
+                    saveConfig()
 					if options.multiple then
 						if Dropdown["3e"][id].Active then
 							Dropdown["3e"][id].Active = false
@@ -2059,6 +2088,7 @@ function Library:Init(Settings)
 			end
 
 			function Dropdown:Toggle()
+                task.wait(0.5)
 				Dropdown.Active = not Dropdown.Active
 				if Dropdown.Active == false then
 					Dropdown["3e"]["Visible"] = false
@@ -2165,7 +2195,6 @@ function Library:Init(Settings)
 				Window["31az"]:Play()
 			end)
 
-
 			return Dropdown
 		end
 
@@ -2235,7 +2264,6 @@ function Library:Init(Settings)
 			Textbox["57"].FocusLost:Connect(function()
 				local txt = Textbox["57"].Text
 				TextboxSettings.callback(txt)
-
 			end)
 
 			function Textbox:Set(txt)
@@ -2254,4 +2282,5 @@ function Library:Init(Settings)
 	end
 	return Window
 end
+task.delay(7.5, loadConfig)
 return Library
