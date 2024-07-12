@@ -87,7 +87,7 @@ local toggle = tab:CreateToggle({
 	callback = function(value)
 		getgenv().val = value
 		if val then
-			print("yes"
+			print("yes")
 		else
 			print("no")
 		end
