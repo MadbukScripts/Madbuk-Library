@@ -85,11 +85,11 @@ label:Set("beans")
 local toggle = tab:CreateToggle({
 	name = "test",
 	callback = function(value)
-		local val = value
+		getgenv().val = value
 		if val then
-			print("true")
+			print("yes"
 		else
-			print("false")
+			print("no")
 		end
 	end,
 })
