@@ -1585,7 +1585,7 @@ function Library:Init(Settings)
 			end)
 
 			function Toggle:Set(state)
-				Toggle.State = state
+                Toggle.State = state
 				Toggle:toggle()
 			end
 
@@ -2213,5 +2213,5 @@ function Library:Init(Settings)
 	end
 	return Window
 end
-task.delay(10, loadConfig)
+task.delay(6, loadConfig)
 return Library
