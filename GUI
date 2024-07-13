@@ -2245,5 +2245,5 @@ function Library:Init(Settings)
 	end
 	return Window
 end
-task.delay(7.5, loadConfig)
+task.delay(9, loadConfig)
 return Library
