@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.8]")
+warn("Madbuk Library - [V6.9]")
 repeat wait() until game:IsLoaded() 
     game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
@@ -1231,7 +1231,7 @@ function Library:Init(Settings)
 		Tab["14"]["Size"] = UDim2.new(0, 100, 0, 30);
 		Tab["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Tab["14"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-		Tab["14"]["Text"] = [[Test]];
+		Tab["14"]["Text"] = options.name;
 		Tab["14"]["TextColor3"] = Color3.fromRGB(255,255,255);
 		Tab["14"]["TextSize"] = 14;
 		Tab["14"]["Name"] = [[Test]];
