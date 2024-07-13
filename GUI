@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.7]")
+warn("Madbuk Library - [V6.8]")
 repeat wait() until game:IsLoaded() 
     game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
@@ -564,8 +564,6 @@ function Library:Init(Settings)
 			Window["6000"]["Visible"] = true
 			dragify(Window["4"])
 			Window["2000"]["Visible"] = true
-			Window["9"]["PaddingLeft"] = UDim.new(0,15)
-			Library:tween(Window["9"], .8, {PaddingLeft = UDim.new(0, 40)})
 			Library:tween(Window["2000"], .8, {Size = UDim2.new(0,402,0,500)})
 			Library:tween(Window["6000"], .8, {Position = Window["2000"].Position  - UDim2.new(0,0,0,260)})
 			Library:tween(Window["a000"], .8, {PaddingLeft = UDim.new(0, 40)})
