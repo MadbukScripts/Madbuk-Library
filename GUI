@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V7.0]")
+warn("Madbuk Library - [V7.1]")
 repeat wait() until game:IsLoaded() 
     game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
@@ -473,7 +473,7 @@ function Library:Init(Settings)
 
 			-- Starte000rGui.Minimize.TopBar.Title.UIPadding
 			Window["a000"] = Instance.new("UIPadding", Window["9000"]);
-			Window["a000"]["PaddingLeft"] = UDim.new(0, 0);
+			Window["a000"]["PaddingLeft"] = UDim.new(0, 15);
 
 			-- Starte000rGui.Minimize.TopBar.Line
 			Window["b000"] = Instance.new("Frame", Window["6000"]);
@@ -566,7 +566,6 @@ function Library:Init(Settings)
 			Window["2000"]["Visible"] = true
 			Library:tween(Window["2000"], .8, {Size = UDim2.new(0,402,0,500)})
 			Library:tween(Window["6000"], .8, {Position = Window["2000"].Position  - UDim2.new(0,0,0,260)})
-			Library:tween(Window["a000"], .8, {PaddingLeft = UDim.new(0, 40)})
 			wait(.65)
 			Window["6000"]["Visible"] = false
 			Window["2000"]["Visible"] = false
@@ -595,9 +594,7 @@ function Library:Init(Settings)
 			Window["b000"]["Size"] = UDim2.new(0,0,0,1)
 			Window["6000"]["Visible"] = true
 			Window["2"]["Visible"] = false
-			Window["a000"]["PaddingLeft"] = UDim.new(0,40)
 			Library:tween(Window["b000"], 2, {Size = UDim2.new(0, 402, 0 ,1)})
-			Library:tween(Window["a000"], .8, {PaddingLeft = UDim.new(0, 15)})
 			Library:tween(Window["2000"], .8, {Size = UDim2.new(0,402,0,40)})
 			Library:tween(Window["6000"], .8, {Position = Window["2000"].Position - UDim2.new(0,0,0,20)})
 		end)
@@ -770,6 +767,7 @@ function Library:Init(Settings)
 		Window["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 		Window["1f"]["Position"] = UDim2.new(0.9750000238418579, 5, 0.8999999761581421, 45);
 		Window["1f"]["Name"] = [[TabHolder]];
+        Window["1f"].ClipsDescendants = true
 
 
 
@@ -2036,51 +2034,27 @@ function Library:Init(Settings)
 						Window["31az"]:Play()
 					end)
 				end
-
+                if Dropdown["3e"]["Visible"] then
+                    Dropdown:Toggle()
+                    task.wait(0.3)
+                    Dropdown:Toggle()
+                end
 			end
 
 			function Dropdown:Remove(id)
 				if Dropdown.Items[id] ~= nil then
 					if #Dropdown.Items[id].instance ~= nil then
 						for i,v in next, Dropdown.Items[id].instance do
-							v:Destroy()
+                            if type(v) ~= 'boolean' then v:Destroy() end
 						end
 					end
 					Dropdown.Items[id] = nil
 				end
-			end
-
-			function Dropdown:Toggle()
-                task.wait(0.5)
-				Dropdown.Active = not Dropdown.Active
-				if Dropdown.Active == false then
-					Dropdown["3e"]["Visible"] = false
-					Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30)})
-				else
-					local count = -1
-					for i,v in next, Dropdown.Items do
-						if v ~= nil then
-							count += 1
-						end
-					end
-
-					Dropdown["3e"]["Size"] = UDim2.new(0,360,0,0)
-					Dropdown["3b"]["Size"] = UDim2.new(0,370,0,0)
-					Dropdown["3e"]["Visible"] = true
-					if count == 1 then
-						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*35))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-					elseif count == 2 then
-						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-					elseif count >= 6 then
-						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
-					else
-						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-					end
-				end
+                if Dropdown["3e"]["Visible"] then
+                    Dropdown:Toggle()
+                    task.wait(0.3)
+                    Dropdown:Toggle()
+                end
 			end
 
 			if options.alwaysOpen then
@@ -2101,12 +2075,9 @@ function Library:Init(Settings)
 					elseif count == 2 then
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
 						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-					elseif count >= 6 then
-						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
 					else
 						Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
+						Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
 					end
 				end
 			else
@@ -2126,19 +2097,16 @@ function Library:Init(Settings)
 						Dropdown["3e"]["Size"] = UDim2.new(0,360,0,0)
 						Dropdown["3b"]["Size"] = UDim2.new(0,370,0,0)
 						Dropdown["3e"]["Visible"] = true
-						if count == 1 then
-							Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*35))})
-							Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-						elseif count == 2 then
-							Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
-							Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-						elseif count >= 6 then
-							Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-							Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
-						else
-							Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
-							Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
-						end
+                        if count == 1 then
+                            Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*35))})
+                            Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
+                        elseif count == 2 then
+                            Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*33))})
+                            Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*27)) - UDim2.new(0,0,0,27)})
+                        else
+                            Library:tween(Dropdown["3b"], 0.4, {Size = UDim2.new(0,370,0,30 + (count*31))})
+                            Library:tween(Dropdown["3e"], 0.4, {Size = UDim2.new(0,360,0,27 + (count*28)) - UDim2.new(0,0,0,27)})
+                        end
 					end
 				end
 			end
