@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V6.9]")
+warn("Madbuk Library - [V7.0]")
 repeat wait() until game:IsLoaded() 
     game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
