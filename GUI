@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V7.1]")
+warn("Madbuk Library - [V7.2]")
 repeat wait() until game:IsLoaded() 
     game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
@@ -44,7 +44,9 @@ function loadConfig()
     local data = HttpService:JSONDecode(config)
 	for toggleName, value in next, data do
         if Library.States[toggleName] then
+	    spawn(function()
             Library.States[toggleName]:Set(value)
+            end)
         end
 	end
 end
