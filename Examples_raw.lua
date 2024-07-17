@@ -1,5 +1,4 @@
---Raw File
-
+-- Raw File
 local MadbukLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MadbukScripts/Madbuk-Library/main/GUI"))()
 
 local main = MadbukLibrary:Init({
@@ -21,8 +20,8 @@ main:NotificationCreate({
 	duration = 10,
 	button = {
 		enabled = true,
-		icon = "rbxassetid://13965544901",
 		content = "Okay!",
+		icon = "rbxassetid://13965544901",
 		callback = function()
 			print("Okay")
 		end,
@@ -56,13 +55,18 @@ label:Set("beans")
 local toggle = tab:CreateToggle({
 	name = "test",
 	callback = function(value)
-		local val = value
-		print(val)
+		getgenv().val = value
+		if val then
+			print("yes")
+		else
+			print("no")
+		end
 	end,
 })
 
 toggle:Set(true)
-toggle:SetName("Hi")
+
+toggle:SetName("hi")
 
 local slider = tab:CreateSlider({
 	name = "example",
@@ -82,14 +86,22 @@ local dropdown = tab:CreateDropdown({
 	multiple = true,
 	callback = function(value, state)
 		print(value, state)
+--[[    value is an instance, so if you want to do
+	if value == 'str' then.. -- wouldnt work
+	you would have to use value.Name instead
+]]--
 	end,	
 })
+
+dropdown:SetName("hi")
+
+dropdown:Toggle()
 
 dropdown:Add("1a")
 dropdown:Add("2a")
 
-dropdown:SetName("hi")
-
+dropdown:Remove("1a")
+dropdown:Remove("2a")
 
 local textbox = tab:CreateTextbox({
 	name = "Textbox",
@@ -97,8 +109,3 @@ local textbox = tab:CreateTextbox({
 		print(txt)
 	end,
 })
-
-wait(0.1)
-
-dropdown:Toggle()
-
