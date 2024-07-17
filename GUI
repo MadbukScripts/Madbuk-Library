@@ -866,8 +866,7 @@ function Library:Init(Settings)
 			Window["900"]["TextTransparency"] = 1;
 			Window["900"]["Size"] = UDim2.new(0, 400, 0, 50);
 			Window["900"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-			--Window["900"]["Text"] = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
-			Window["900"]["Text"] = "[Error]";
+			Window["900"]["Text"] = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
 			Window["900"]["Name"] = [[Game]];
 			Window["900"]["Position"] = UDim2.new(0, 0, 0.5, -20);
 
