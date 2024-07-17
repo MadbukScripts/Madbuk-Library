@@ -750,7 +750,7 @@ function Library:Init(Settings)
         Window["test"].ZIndex = 2
         Window["test"].ScrollingDirection = Enum.ScrollingDirection.X
         Window["test"].BackgroundTransparency = 1;
-        Window["test"].CanvasSize = UDim2.new(6, 0, 0, 0)
+        Window["test"].CanvasSize = UDim2.new(2, 0, 0, 0)
         Window["test"].ScrollBarThickness = 0.5
         Window["test"].ScrollBarImageColor3 = Color3.fromRGB(25,25,25)
 
@@ -1269,6 +1269,7 @@ function Library:Init(Settings)
 		Tab["22"]["Position"] = UDim2.new(0, 8, 0, 5);
 		Tab["22"]["Name"] = [[ContentContainer]];
 		Tab["22"]["Visible"] = false
+		Tab["22"].CanvasSize = UDim2.new(0,0,6,0)
 
 		-- StarterTab.MadbukLibrary.Main.Container.TabHolder.ContentContainer.UIPadding
 		Tab["58"] = Instance.new("UIPadding", Tab["22"]);
