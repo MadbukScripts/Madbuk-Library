@@ -1,8 +1,10 @@
 warn("Madbuk Library - [V7.2]")
-repeat wait() until game:IsLoaded() 
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-    game:GetService("VirtualUser"):ClickAddButton2(Vector2.new())
+local vu=game:GetService('VirtualUser')
+game:GetService('Players').LocalPlayer.Idled:connect(function()
+    vu:CaptureController()
+    vu:ClickButton2(Vector2.new())
 end)
+
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -748,7 +750,7 @@ function Library:Init(Settings)
         Window["test"].ZIndex = 2
         Window["test"].ScrollingDirection = Enum.ScrollingDirection.X
         Window["test"].BackgroundTransparency = 1;
-        Window["test"].CanvasSize = UDim2.new(2, 0, 0, 0)
+        Window["test"].CanvasSize = UDim2.new(6, 0, 0, 0)
         Window["test"].ScrollBarThickness = 0.5
         Window["test"].ScrollBarImageColor3 = Color3.fromRGB(25,25,25)
 
