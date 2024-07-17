@@ -1,4 +1,4 @@
-warn("Madbuk Library - [V7.2]")
+warn("Madbuk Library - [V7.3]")
 local vu=game:GetService('VirtualUser')
 game:GetService('Players').LocalPlayer.Idled:connect(function()
     vu:CaptureController()
