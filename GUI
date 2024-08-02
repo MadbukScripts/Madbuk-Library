@@ -26,7 +26,7 @@ local configFolder = folder.."/configs"
 makefolder(configFolder)
 
 local configExtension = ".json"
-local fileName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local fileName = game.PlaceId
 local fileLocation = configFolder..'/'..fileName..configExtension
 
 function saveConfig()
