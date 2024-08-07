@@ -1,7 +1,8 @@
 warn("Madbuk Library - [V7.3]")
-for i,v in next,getconnections(game.Players.LocalPlayer.Idled) do
-	v:Disable()
-end
+
+--for i,v in next,getconnections(game.Players.LocalPlayer.Idled) do
+--	v:Disable()
+--end
 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
