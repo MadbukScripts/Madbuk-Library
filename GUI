@@ -1,8 +1,11 @@
-warn("Madbuk Library - [V7.3]")
+warn("Madbuk Library - [V7.4]")
 
---for i,v in next,getconnections(game.Players.LocalPlayer.Idled) do
---	v:Disable()
---end
+if setwindowtitle then setwindowtitle("Madbuk Scripts") end
+if getconnections then 
+    for i,v in next,getconnections(game.Players.LocalPlayer.Idled) do
+	v:Disable()
+    end
+end
 
 local runService = game:GetService("RunService")
 local coreGui = game:GetService("CoreGui")
